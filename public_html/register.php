@@ -54,7 +54,7 @@ if(isset($_POST["RegisterBtn"])){
 
         else {
                 echo "<script> alert('The password doesn't match. ')</script>";
-                echo"<script>window.location= 'registerForm.html'</script>";
+                echo"<script>window.location= 'index.html'</script>";
         }
 
 }

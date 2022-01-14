@@ -1,0 +1,75 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <link rel="stylesheet" type="text/css" href="styling/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@200&family=Poppins:wght@300&display=swap"
+          rel="stylesheet">
+    <title>Tvtime</title>
+
+    <script>
+      function toggleToolbar(activeElement) {
+        let loginForm = document.getElementById("login-form");
+        let registerForm = document.getElementById("register-form");
+        let loginButton = document.getElementById("login-toolbar")
+        let registerButton = document.getElementById("register-toolbar")
+        if (activeElement === 'login') {
+          loginForm.classList.add('active')
+          loginButton.classList.add('active-toolbar')
+          registerButton.classList.remove('active-toolbar')
+          registerForm.classList.remove('active')
+        } else if (activeElement === 'register') {
+          registerForm.classList.add('active')
+          registerButton.classList.add('active-toolbar')
+          loginButton.classList.remove('active-toolbar')
+          loginForm.classList.remove('active')
+        }
+      }
+    </script>
+
+</head>
+<body>
+<div class="main-container">
+    <a href='principal.php'>
+        <img class='logo' src="img/logo-movie.png">
+        <span>TVTime</span>
+    </a>
+    <div class="toolbar-container">
+        <div id="login-toolbar" class='active-toolbar toolbar-elem' onclick="toggleToolbar('login')">Login</div>
+        <div id="register-toolbar" class="toolbar-elem" onclick="toggleToolbar('register')">Register</div>
+    </div>
+
+    <form action="initSession.php" method="GET" id="login-form" class="active">
+        <span>Username</span>
+        <input name="Name" type="text">
+        <span>Password</span>
+        <input name="Pass" type="password">
+        <input class="submit-btn" type="submit" value="Login" name="SubmitBtn">
+    </form>
+
+    <form action="register.php" method="POST" enctype="multipart/form-data" id="register-form">
+        <span>Name</span>
+        <input name="Name" type="text">
+        <span>Password</span>
+        <input name="Password" type="password">
+        <span>Confirm password</span>
+        <input name="Password2" type="password">
+        <span>Age</span>
+        <input name="Age" type="text">
+        <span>Gender</span>
+        <select name="Gender">
+            <option value="M">Male</option>
+            <option value="F">Female</option>
+        </select>
+        <span> Occupation</span>
+        <input name="Occupation" type="text">
+        <span>Profile photo</span>
+        <input type="file" name="Photo">
+        <input class="submit-btn" type="submit" value="Register" name="RegisterBtn"/>
+    </form>
+</div>
+</body>
+</html>
