@@ -1,0 +1,46 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <link rel="stylesheet" type="text/css" href="styling/styles.css">
+    <title>Tvtime</title>
+</head>
+<body>
+
+
+<h1><a href='principal.php'>TvTime</a></h1>
+<div class="registration-container">
+    <h1>Register</h1>
+
+
+    <form action="register.php" method="POST" enctype="multipart/form-data">
+
+        <div class="register-container">
+
+            Name*: <input name="Name" type="text">
+            <br><br>
+            Pass*: <input name="Password" type="password">
+            <br>
+            Confirm pass*: <input name="Password2" type="password">
+            <br><br>
+            Age: <input name="Age" type="text">
+            <br><br>
+            Gender:
+            <br>
+            <select name="Gender">
+                <option value="M">Male</option>
+                <option value="F">Female</option>
+            </select>
+            <br><br>
+            Ocupation: <input name="Ocupation" type="text">
+            <br><br>
+            Profile photo: <input type="file" name="Photo">
+            <br><br>
+        </div>
+
+        <input type="submit" value="Register" name="RegisterBtn" style='background-color:lightyellow'/>
+        <br><br><br>
+        <span>The fields with * are required</span>
+</div>
+
+</body>
+</html>
