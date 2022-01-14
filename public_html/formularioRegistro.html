@@ -1,0 +1,51 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<link rel="stylesheet" type="text/css" href="css/estilo.css">
+<title>Videorec</title>
+</head>
+<body>
+
+
+
+<h1><a href='principal.php'>Videorec</a></h1>
+<div class="reg">
+<h1>Regístrate en Videorec</h1>
+
+
+<form action = "registro.php" method="POST" enctype="multipart/form-data">
+		
+	<div class="reg2">
+
+        Nombre*: <input name="Nombre" type= "text">
+		<br><br>
+	Contraseña*: <input name="Password" type= "password">
+		<br>
+        Confirmar Contraseña*: <input name="Password2" type= "password">
+        <br><br>
+        Edad: <input name="Edad" type= "text">
+	<br><br>
+	Sexo:
+	<br>
+        <select name="Sexo">
+  		<option value="M">Hombre</option>
+  		<option value="F">Mujer</option>
+	</select>
+	<br><br>
+        Ocupación: <input name="Ocupacion" type= "text">
+		<br><br>
+        Foto de perfil: <input type= "file" name="Foto">
+		<br><br>
+
+	</div>
+	
+        <input type="submit" value="Registro" name="BotonRegistro" style='background-color:lightyellow'>
+        <br><br><br>      
+        
+        <font size="2px">Los campos marcados con <font color="red"> (*) </font> son obligatorios.</font>
+
+</div>
+		
+</body>
+</html>
+
