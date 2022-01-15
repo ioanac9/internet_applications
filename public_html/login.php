@@ -21,9 +21,9 @@ if(isset($_GET["LoginBtn"]))
         {
                 setcookie('sesion',$finalResult['name']);
                 echo '<script>document.location = "principal.php"</script>';
-        }else{
-                echo "<script> alert('Credenciales incorrectos.' + $finalResult)</script>";
-                echo "<script>document.location = 'index.html'</script>";
         }
+        echo "<script> alert('Credentials are invalid!')</script>";
+        echo "<script>document.location = 'index.html'</script>";
+
 }
 ?>

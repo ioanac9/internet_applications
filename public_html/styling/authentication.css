@@ -13,6 +13,20 @@
     top: 0;
     left: 0;
     background-color: white;
+    display: flex;
+    justify-content: space-between;
+}
+
+.nav-bar-menu {
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    margin-right: 50px;
+    display: flex;
+    width: 200px;
+}
+.nav-bar-menu>form {
+    margin-bottom: 0;
 }
 
 .logo {
