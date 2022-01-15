@@ -28,7 +28,7 @@
             </a>
             <div class='nav-bar-menu'>
                 <?php
-                    if (isset($_COOKIE['sesion'])) {
+                    if (isset($_COOKIE['session'])) {
                             echo "<a class='submit-btn' href='myAccount.php'>My account</a>";
                             echo "<form action='logout.php' method='GET'>";
                                 echo "<input class='submit-btn' type='submit' name='exit' value='Logout'/>";

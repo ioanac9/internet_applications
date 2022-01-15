@@ -21,9 +21,9 @@
         <!--  JS  -->
         <script type='text/javascript'>
             function remove(){
-                var mensaje = window.confirm('Are you sure you want to delete your account?');
-                if (mensaje){
-                    window.location = 'removeAccount.php';
+                const message = window.confirm('Are you sure you want to delete your account?');
+                if (message){
+                    window.location = 'deleteAccount.php';
                 }else{
                     window.location = 'myAccount.php';
                 }
@@ -39,7 +39,7 @@
             </a>
             <div class='nav-bar-menu'>
                 <?php
-                    if (isset($_COOKIE['sesion'])) {
+                    if (isset($_COOKIE['session'])) {
                             echo "<a class='submit-btn' href='myAccount.php'>My account</a>";
                             echo "<form action='logout.php' method='GET'>";
                                 echo "<input class='submit-btn' type='submit' name='exit' value='Logout'/>";
@@ -58,7 +58,7 @@
                 echo 'Connection failed: '. $e->getMessage();
             };
 
-            $session = $_COOKIE['sesion'];
+            $session = $_COOKIE['session'];
             $query = "SELECT * FROM users WHERE users.name='$session'";
 
             $result = $pdo->query($query);
@@ -72,7 +72,7 @@
                         echo "<div><span class='desc'>Age: </span>".$l["edad"]."</div>";
                         echo "<div><span class='desc'> Occupation: </span>".$l["ocupacion"]."</div>";
                         echo "<div class='btn-container'>";
-                            echo "<a href='updateData.php'><button class='submit-btn' style='height: 100%'>Update your information</button></a>";
+                            echo "<a href='updateAccount.php'><button class='submit-btn' style='height: 100%'>Update your information</button></a>";
                             echo "<input type='button' class='submit-btn' onclick='remove()' value='Delete account'>";
                         echo "</div>";
                     echo "</div>";

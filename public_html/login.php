@@ -5,23 +5,22 @@ $password = $_GET["password_login"];
 
 try {
         $pdo = new PDO('mysql:host=localhost;dbname=Asd', 'root','Rodeapps123');
-}catch (PDOException $e) {
+} catch (PDOException $e) {
         echo 'Connection failed: ' . $e->getMessage();
 };
 
-if(isset($_GET["LoginBtn"]))
-{
+if (isset($_GET["LoginBtn"])) {
         $passwordHashed = sha1($password);
         $queryPass = "SELECT name,passwd FROM users WHERE users.name = '$user' AND users.passwd = '$passwordHashed'";
 
         $resultPass = $pdo->query($queryPass);
         $finalResult=$resultPass->fetch(PDO::FETCH_ASSOC);
 
-        if ($finalResult)
-        {
-                setcookie('sesion',$finalResult['name']);
+        if ($finalResult) {
+                setcookie('session',$finalResult['name']);
                 echo '<script>document.location = "principal.php"</script>';
         }
+
         echo "<script> alert('Credentials are invalid!')</script>";
         echo "<script>document.location = 'index.html'</script>";
 
