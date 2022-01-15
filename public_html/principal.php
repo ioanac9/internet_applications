@@ -42,14 +42,7 @@
                          <?php
 
                          echo "<div id='tablax' class='table table-striped table-bordered' style='width:100%' border='1'>";
-//                          echo "<thead>";
-//                          echo "<div width ='150' heigth='211'>Poster</th>";
-//                            echo "<th>Title</th>";
-//                          echo "<th>Rating</th>";
-//                          echo "<th>Average rating</th>";
-//                          echo "<th>Release date</th>";
-//                          echo "</thead>";
-//                          echo "<tbody>";
+
  $queryPonderada = "SELECT score FROM user_score";
         $resultPond = $pdo->query($queryPonderada);
         $suma2=0;
@@ -77,8 +70,6 @@
                                 $media = $suma/$cnt;
                                 echo $media;
                                 echo "<span>Total ratings: ".$cnt."</span>";
-//                                 $pp = (1682*$media2 + $cnt*$media)/(1682+$cnt);
-//                                 echo $pp;
                                 echo "<span>".$l["date"]."</span>";
                                 echo "</div>";
                                 echo "</div>";
