@@ -31,17 +31,16 @@ if(isset($_POST["RegisterBtn"])){
                 $queryRegister = "INSERT INTO users(name, edad, sex, ocupacion, pic, passwd) values
                 ('$name', '$age','$gender', '$occupation', '$photo', '$pass_hash')";
                 $result = $pdo->query($queryRegister);
-
                 $route = 'images/'.$photo;
                 move_uploaded_file($_FILES['file_register']['tmp_name'],$route);
 
                 if($queryRegister){
-                $q="SELECT id FROM users WHERE users.id=(SELECT max(id) FROM users)";
+                $q="SELECT id FROM users WHERE users.name='$name'";
                 $r = $pdo->query($q);
                 $l=$r->fetch(PDO::FETCH_ASSOC);
                 echo "<script>alert('Registered user ')</script>";
-                setcookie('sesion',$l['id']);
-                echo "<script>window.location = 'principal.php' </script>";
+                setcookie('sesion',$l['name']);
+                    echo "<script>window.location = 'principal.php' </script>";
                 }
         }
         else {
