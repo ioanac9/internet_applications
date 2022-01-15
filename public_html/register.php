@@ -1,12 +1,12 @@
 <?php
 
-$name = $_POST["Name_reg"];
-$password = $_POST["Password_reg"];
-$password2 = $_POST["Password2_reg"];
-$age = $_POST["Age"];
-$gender = $_POST["Gender"];
-$occupation = $_POST["Occupation"];
-$photo = $_FILES['Photo']['name'];
+$name = $_POST["username_register"];
+$password = $_POST["password_register"];
+$password2 = $_POST["confirm_password_register"];
+$age = $_POST["age_register"];
+$gender = $_POST["gender_register"];
+$occupation = $_POST["occupation_register"];
+$photo = $_FILES['file_register']['name'];
 
 try {
         $pdo = new PDO('mysql:host=localhost;dbname=Asd', 'root','Rodeapps123');
@@ -17,11 +17,9 @@ try {
 if(isset($_POST["RegisterBtn"])){
 
         if ($password == $password2){
-                    echo"<h1>HELLO</h1>";
                 $queryy = "SELECT pic FROM users";
                 $resultt = $pdo->query($queryy);
                 while ($ll=$resultt->fetch(PDO::FETCH_ASSOC)){
-
                         if ($ll['pic']==$photo){
                                 $i = 1;
                                 $nameWithoutExtension = pathinfo($photo);
@@ -34,8 +32,8 @@ if(isset($_POST["RegisterBtn"])){
                 ('$name', '$age','$gender', '$occupation', '$photo', '$pass_hash')";
                 $result = $pdo->query($queryRegister);
 
-                $route = 'photos/'.$photo;
-                move_uploaded_file($_FILES['Photo']['tmp_name'],$route);
+                $route = 'images/'.$photo;
+                move_uploaded_file($_FILES['file_register']['tmp_name'],$route);
 
                 if($queryRegister){
                 $q="SELECT id FROM users WHERE users.id=(SELECT max(id) FROM users)";

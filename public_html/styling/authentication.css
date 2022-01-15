@@ -21,16 +21,21 @@
 }
 
 .toolbar-container {
-    display: flex;
-    flex-direction: row;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     border: 1px solid lightgrey;
     border-radius: 14px;
-    align-items: center;
-    justify-content: center;
     width: 75%;
     color: black;
     margin: auto auto 30px;
     box-shadow: 0 3px 6px lightgrey;
+}
+
+.toolbar-container>.submit-btn {
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .toolbar-elem {
@@ -44,8 +49,10 @@
 }
 
 .active-toolbar {
-    background: deepskyblue;
-    color: white;
+    background: #ccc;
+    color: black;
+    pointer-events: none;
+    user-select: none;
     font-weight: bold;
 }
 

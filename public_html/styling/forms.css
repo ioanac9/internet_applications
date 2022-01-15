@@ -10,12 +10,53 @@
     box-shadow: 0 3px 6px lightgrey;
 }
 
-input, select {
-    margin: 7px 0;
-    border-radius: 4px;
-    border: 1px solid lightgrey;
-    padding: 7px;
-    font-size: 15px;
+input:not([type="submit"]), textarea {
+    font-size: 14px;
+    font-weight: 500;
+    background-color: white;
+    border-radius: 5px;
+    border: solid 1px #c1c0c8;
+    color: #14303c;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.03);
+    padding: 0 10px;
+    transition: box-shadow 0.1s, background-color 0.05s, background-image 0.1s, border-radius 0.1s, filter 0.05s;
+}
+input:not([type="submit"])::placeholder, textarea::placeholder {
+    color: #aaa;
+}
+input:not([type="submit"]):hover, textarea:hover {
+    filter: drop-shadow(0 0 4px rgba(0, 0, 0, 0.07));
+}
+input:not([type="submit"]).error, textarea.error {
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0.1), inset 0 0 0 1px #f84d6e;
+}
+input:not([type="submit"]):focus, textarea:focus {
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.1), inset 0 0 0 1.5px #009db2;
+    outline: none;
+}
+input:not([type="submit"]).error-input, textarea.error-input {
+    box-shadow: 0 0 3px rgba(247, 62, 98, 0.1), inset 0 0 0 1px #f84d6e;
+}
+input:not([type="submit"]).big-input, textarea.big-input {
+    height: 50px;
+}
+input:not([type="submit"]) {
+    height: 40px;
+}
+input:not([type="submit"]).with-icon {
+    background-size: 16px;
+    background-position: calc(100% - 10px) 50%;
+    padding-right: calc(16px + 10px * 2);
+    background-repeat: no-repeat;
+}
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+/* Firefox */
+input[type=number] {
+    -moz-appearance: textfield;
 }
 
 .form-row {

@@ -1,11 +1,67 @@
 .submit-btn {
-    background: deepskyblue;
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 500;
+    background-color: #00707f;
+    border-radius: 5px;
     color: white;
-    font-size: 20px;
-    font-weight: bold;
-    border-radius: 15px;
-    padding: 2%;
+    height: 30px;
+    line-height: 29px;
+    border: 0;
+    box-shadow: 0 8px 13px rgba(0, 0, 0, 0.16);
+    padding: 0 20px;
     cursor: pointer;
-    margin-top: 15px;
-    box-shadow: 0px 3px 6px lightgrey;
+    user-select: none;
+    transition: box-shadow 0.15s, background-color 0.05s;
+}
+.submit-btn:hover {
+    background-color: #008699;
+}
+.submit-btn:focus {
+    box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
+    background-color: #00434c;
+    transition: box-shadow 0.1s cubic-bezier(0.47, 1.62, 0.55, 1.08), background-color 0.1s;
+}
+.submit-btn:active {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+    background-color: #002d33;
+    transition: box-shadow 0.1s cubic-bezier(0.47, 1.62, 0.55, 1.08), background-color 0.05s;
+}
+.margin-top-20 {
+    margin-top: 20px;
+}
+.white-button {
+    background-color: white;
+    color: #12303d;
+    border: 1px solid #c1c0c8;
+}
+.white-button:hover {
+    background-color: #f0f0f0;
+}
+.white-button:focus {
+    box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
+    background-color: #e6e6e6;
+    transition: box-shadow 0.1s cubic-bezier(0.47, 1.62, 0.55, 1.08), background-color 0.1s;
+}
+.white-button:active {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+    background-color: #d9d9d9;
+    transition: box-shadow 0.1s cubic-bezier(0.47, 1.62, 0.55, 1.08), background-color 0.05s;
+}
+.button-cancel {
+    background-color: #f1f1f1;
+    color: #12303d;
+}
+.button-cancel:hover {
+    background-color: #f6f6f6;
+}
+.button-cancel:focus {
+    box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
+    background-color: #d8d8d8;
+    transition: box-shadow 0.1s cubic-bezier(0.47, 1.62, 0.55, 1.08), background-color 0.1s;
+}
+.button-cancel:active {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+    background-color: #cbcbcb;
+    transition: box-shadow 0.1s cubic-bezier(0.47, 1.62, 0.55, 1.08), background-color 0.05s;
 }

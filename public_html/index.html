@@ -42,14 +42,14 @@
     <body>
         <div class="nav-bar">
             <a href='principal.php'>
-                <img class='logo' src="img/logo_movie.png" alt="logo of the company.">
+                <img class='logo' src="images/logo_movie.png" alt="logo of the company.">
             </a>
         </div>
 
         <div class="main-container">
             <div class="toolbar-container">
-                <div id="login-toolbar" class='active-toolbar toolbar-elem' onclick="toggleToolbar('login')">Login</div>
-                <div id="register-toolbar" class="toolbar-elem" onclick="toggleToolbar('register')">Register</div>
+                <div id="login-toolbar" class='active-toolbar submit-btn' onclick="toggleToolbar('login')">Login</div>
+                <div id="register-toolbar" class="submit-btn" onclick="toggleToolbar('register')">Register</div>
             </div>
 
             <form action="login.php" method="GET" id="login-form" class="active">
@@ -58,10 +58,10 @@
                     <input name="username_login" type="text">
                 </label>
                 <label class="form-row">
-                    Username
+                    Password
                     <input name="password_login" type="password">
                 </label>
-                <input class="submit-btn" type="submit" value="Login" name="LoginBtnAction">
+                <input class="submit-btn margin-top-20" type="submit" value="Login" name="LoginBtn">
             </form>
 
             <form action="register.php" method="POST" enctype="multipart/form-data" id="register-form">
@@ -96,7 +96,7 @@
                     Profile photo
                     <input name="file_register" type="file">
                 </label>
-                <input class="submit-btn" type="submit" value="Register" name="RegisterBtn"/>
+                <input class="submit-btn margin-top-20" type="submit" value="Register" name="RegisterBtn"/>
             </form>
         </div>
     </body>

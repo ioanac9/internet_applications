@@ -9,7 +9,7 @@ try {
         echo 'Connection failed: ' . $e->getMessage();
 };
 
-if(isset($_GET["LoginBtnAction"]))
+if(isset($_GET["LoginBtn"]))
 {
         $passwordHashed = sha1($password);
         $queryPass = "SELECT name,passwd FROM users WHERE users.name = '$user' AND users.passwd = '$passwordHashed'";
@@ -19,7 +19,7 @@ if(isset($_GET["LoginBtnAction"]))
 
         if ($finalResult)
         {
-                setcookie('sesion',$finalResult['id']);
+                setcookie('sesion',$finalResult['name']);
                 echo '<script>document.location = "principal.php"</script>';
         }else{
                 echo "<script> alert('Credenciales incorrectos.' + $finalResult)</script>";
