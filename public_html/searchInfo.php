@@ -1,12 +1,10 @@
 <html>
-<title>Videorec</title>
+<title>TVTime</title>
 
 <link rel="stylesheet" href="styling/styles.css">
-
 <div>
 <h1><a  href = 'principal.php'>TVTime</a></h1>
 </div>
-<h1 align='center'>Movie info</h1>
 
 <?php
     	try {
@@ -20,11 +18,12 @@
 
 
 			$l=$result->fetch(PDO::FETCH_ASSOC);
-				echo "<div class=movie-container>";
+				echo "<div class=movie-container-single>";
 				echo "<div class=movie-info>";
                			echo "<img class='movie-info-single' src= 'images/".$l["url_pic"]."'/>";
-				echo "<div>".$l["title"]."";
-				echo "<div>";
+				echo "<div class='text-movie-container'>
+				<div><h1>".$l["title"]."</h1></div>";
+				echo "<div> <span class='desc'> Genre: </span>";
        					$queryGen = "SELECT genre FROM moviegenre WHERE moviegenre.movie_id=".$_GET['id'];
 					$r = $pdo->query($queryGen);
 					while($k=$r->fetch(PDO::FETCH_ASSOC)){
@@ -33,10 +32,34 @@
 						$a=$res->fetch(PDO::FETCH_ASSOC);
 						echo $a['name'];
 					}
+					echo "</div>";
+				echo "<div> <span class='desc'> Description: </span> ".$l["desc"]."</div>";
+                		echo "<div> <span class='desc'> Release date: </span>".$l["date"]."</div>";
+					$queryC = "SELECT * FROM moviecomments WHERE moviecomments.movie_id=".$_GET['id'];
+                	$resultC = $pdo->query($queryC);
+
+                		echo "<div class='reviews'>";
+                		echo "<div style='display:flex; align-items:center'><h2>Reviews</h2> <img style='height:30px' src='img/star.png'/></div>";
+                		echo "<div class='comments-section'>";
+
+                		while($a=$resultC->fetch(PDO::FETCH_ASSOC)){
+                		$queryU = "SELECT * from users WHERE users.id =".$a['user_id'];
+                		$resultU = $pdo->query($queryU);
+                		$b=$resultU->fetch(PDO::FETCH_ASSOC);
+                		echo "<div class='single-review'>";
+                        	echo "<span class='desc'>".$b['name'].": </span>";
+                		echo "<span>".$a['comment']."</span>";
+                		echo "</div>";
+
+                		}
+                						echo "</div>";
+
+                	echo "</div>";
+
 				echo "</div>";
-				echo "<div>".$l["desc"]."</div>";
-                		echo "<td>".$l["date"]."</td>";
-				echo "</div>";
+
+								echo "</div>";
+
 				echo "</div>";
 				echo "</div>";
 
@@ -57,11 +80,11 @@
 	{
 
 
-	echo 	"<form action = 'actualizarPuntuacion.php' method='GET'>";
+	echo 	"<form action = 'updateRating.php' method='GET'>";
 	}
 	else
 	{
-	echo 	"<form action = 'añadirPuntuacion.php' method='GET'>";
+	echo 	"<form action = 'addRating.php' method='GET'>";
 	}
 
 
@@ -79,12 +102,8 @@
 	echo   "<input id='radio5' type='radio' name='punt' value='5'>";
 	echo    "<label for='radio5'>5</label>";
 	echo	"  ";
-	echo	"<input type='submit' value='Puntuar' name='BotonPuntuar' style='background-color:lightyellow'>";
+	echo	"<input type='submit' value='Puntuar' name='ReviewBtn' style='background-color:lightyellow'>";
 	echo	"</form>";
-
-
-
-
 
 	$idmovie =$_GET['id'];
 	$queryPunt = "SELECT * FROM user_score WHERE user_score.id_user=".$_COOKIE['sesion']." AND user_score.id_movie=$idmovie";
@@ -98,29 +117,8 @@
 	}
 
 
-	$queryC = "SELECT * FROM moviecomments WHERE moviecomments.movie_id=".$_GET['id'];
-	$resultC = $pdo->query($queryC);
-	echo "<table border='1' style='width:60%'>";
-        echo "<tr>";
-        echo "<th>Usuario</th>";
-        echo "<th>Comentario</th>";
-	echo "</tr>";
-
-		while($a=$resultC->fetch(PDO::FETCH_ASSOC)){
-		$queryU = "SELECT * from users WHERE users.id =".$a['user_id'];
-		$resultU = $pdo->query($queryU);
-		$b=$resultU->fetch(PDO::FETCH_ASSOC);
-		echo "<tr>";
-        	echo "<td>".$b['name']."</td>";
-		echo "<td>".$a['comment']."</td>";
-		echo "</tr>";
-		}
-
-	echo "</table>";
-
-
 if (isset($_COOKIE['sesion'])) {
-	echo '<form action="insertarComentario.php" method="POST">';
+	echo '<form action="addComment.php" method="POST">';
 	echo "<input type='hidden' name='idu' value=".$_COOKIE['sesion'].">";
 	echo "<input type='hidden' name='idm' value=".$_GET['id'].">";
 	echo "<br>";

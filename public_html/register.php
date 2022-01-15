@@ -1,8 +1,8 @@
 <?php
 
-$name = $_POST["Name"];
-$password = $_POST["Password"];
-$password2 = $_POST["Password2"];
+$name = $_POST["Name_reg"];
+$password = $_POST["Password_reg"];
+$password2 = $_POST["Password2_reg"];
 $age = $_POST["Age"];
 $gender = $_POST["Gender"];
 $occupation = $_POST["Occupation"];
@@ -17,7 +17,7 @@ try {
 if(isset($_POST["RegisterBtn"])){
 
         if ($password == $password2){
-
+                    echo"<h1>HELLO</h1>";
                 $queryy = "SELECT pic FROM users";
                 $resultt = $pdo->query($queryy);
                 while ($ll=$resultt->fetch(PDO::FETCH_ASSOC)){
@@ -25,11 +25,12 @@ if(isset($_POST["RegisterBtn"])){
                         if ($ll['pic']==$photo){
                                 $i = 1;
                                 $nameWithoutExtension = pathinfo($photo);
-                                $photo = $nameWithoutExtension['filename'].$i.'.'.$nameWithoutExtension['extension'];                        }
+                                $photo = $nameWithoutExtension['filename'].$i.'.'.$nameWithoutExtension['extension'];
+                        }
                 }
 
                 $pass_hash = sha1($password);
-                $queryRegistrar = "INSERT INTO users(name, edad, sex, ocupacion, passwd) values
+                $queryRegister = "INSERT INTO users(name, edad, sex, ocupacion, pic, passwd) values
                 ('$name', '$age','$gender', '$occupation', '$photo', '$pass_hash')";
                 $result = $pdo->query($queryRegister);
 
