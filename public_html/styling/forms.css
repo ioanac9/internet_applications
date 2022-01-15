@@ -40,7 +40,7 @@ input:not([type="submit"]).error-input, textarea.error-input {
 input:not([type="submit"]).big-input, textarea.big-input {
     height: 50px;
 }
-input:not([type="submit"]) {
+input:not([type="submit"]), select {
     height: 40px;
 }
 input:not([type="submit"]).with-icon {
