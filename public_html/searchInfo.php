@@ -22,7 +22,7 @@
 			$l=$result->fetch(PDO::FETCH_ASSOC);
 				echo "<div class=movie-container>";
 				echo "<div class=movie-info>";
-               			echo "<img width ='150' height='211' src= 'images/".$l["url_pic"]."'/>";
+               			echo "<img class='movie-info-single' src= 'images/".$l["url_pic"]."'/>";
 				echo "<div>".$l["title"]."";
 				echo "<div>";
        					$queryGen = "SELECT genre FROM moviegenre WHERE moviegenre.movie_id=".$_GET['id'];

@@ -136,3 +136,7 @@ a {
     display: flex;
     flex-direction: row;
 }
+.movie-info-single{
+    width: 500px;
+    height: auto;
+}
