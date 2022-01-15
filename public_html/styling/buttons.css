@@ -1,0 +1,11 @@
+.submit-btn {
+    background: deepskyblue;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 15px;
+    padding: 2%;
+    cursor: pointer;
+    margin-top: 15px;
+    box-shadow: 0px 3px 6px lightgrey;
+}

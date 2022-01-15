@@ -1,84 +1,14 @@
+/* Base */
+@import "buttons.css";
+@import "forms.css";
+
+/* Pages */
+@import "authentication.css";
+
 * {
     font-family: 'Poppins', sans-serif;
 }
 
-.main-container {
-    width: 50%;
-    margin: auto;
-}
-
-.logo {
-    height: 80px;
-    width: auto;
-}
-
-#login-form, #register-form {
-    display: none;
-    flex-direction: column;
-    width: 50%;
-    margin: auto;
-    border: 1px solid lightgrey;
-    padding: 7% 12%;
-    border-radius: 7px;
-    background: rgba(125, 125, 125, 0.1);
-    box-shadow: 0px 3px 6px lightgrey;
-
-}
-
-.submit-btn {
-    background: deepskyblue;
-    color: white;
-    font-size: 20px;
-    font-weight: bold;
-    border-radius: 15px;
-    padding: 2%;
-    cursor: pointer;
-    margin-top: 15px;
-    box-shadow: 0px 3px 6px lightgrey;
-}
-
-.toolbar-container {
-    display: flex;
-    flex-direction: row;
-    border: 1px solid lightgrey;
-    border-radius: 14px;
-    align-items: center;
-    justify-content: center;
-    width: 75%;
-    margin: auto;
-    color: black;
-    margin-bottom: 30px;
-    box-shadow: 0px 3px 6px lightgrey;
-}
-
-.toolbar-elem {
-    padding: 2%;
-    width: 100%;
-    border-radius: 13px;
-    text-align: center;
-    cursor: pointer;
-    user-select: none;
-    font-size: 16px;
-}
-
-.active-toolbar {
-    background: deepskyblue;
-    color: white;
-    font-weight: bold;
-}
-
-
-.active {
-    display: flex !important;
-}
-
-input, select {
-    margin: 7px 0;
-    border-radius: 4px;
-    border: 1px solid lightgrey;
-    padding: 7px;
-    font-size: 15px;
-}
 
 #tablax {
     display: grid;
