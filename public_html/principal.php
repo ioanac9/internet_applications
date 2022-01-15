@@ -1,25 +1,9 @@
 <html>
 <head>
 <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
-<link rel="stylesheet" href="styling/style.css">
-
-<!-- JQUERY -->
-<script src="js/jquery.dataTables.min.js"></script>
-
-<!-- DATATABLES -->
-<script src="js/jquery.dataTables.min.js"></script>
-
-<!-- BOOTSTRAP -->
-<script src="js/dataTables.bootstrap4.min.js"></script>
-    <style>
-        th,td {
-            padding: 0.4rem !important;
-            background-color: lightblue;
-        }
-  </style>
 <title>TVTIME</title>
 
-<link rel="stylesheet" type="text/css" href="styling/style.css">
+<link rel="stylesheet" type="text/css" href="styling/styles.css">
 </head>
 <body>
 
@@ -53,19 +37,19 @@
                          $result = $pdo->query($query);
                          ?>
 
-                         <div class="container" style="margin-top: 10px;padding: 5px">
+                         <div class="container-1" style="margin-top: 10px;padding: 5px">
 
                          <?php
 
-                         echo "<table id='tablax' class='table table-striped table-bordered' style='width:100%' border='1'>";
-                         echo "<thead>";
-                         echo "<th width ='150' heigth='211'>Poster</th>";
-                           echo "<th>Title</th>";
-                         echo "<th>Rating</th>";
-                         echo "<th>Average rating</th>";
-                         echo "<th>Release date</th>";
-                         echo "</thead>";
-                         echo "<tbody>";
+                         echo "<div id='tablax' class='table table-striped table-bordered' style='width:100%' border='1'>";
+//                          echo "<thead>";
+//                          echo "<div width ='150' heigth='211'>Poster</th>";
+//                            echo "<th>Title</th>";
+//                          echo "<th>Rating</th>";
+//                          echo "<th>Average rating</th>";
+//                          echo "<th>Release date</th>";
+//                          echo "</thead>";
+//                          echo "<tbody>";
  $queryPonderada = "SELECT score FROM user_score";
         $resultPond = $pdo->query($queryPonderada);
         $suma2=0;
@@ -77,10 +61,9 @@
         $media2 = $suma2/$cnt2;
 
                         while ($l=$result->fetch(PDO::FETCH_ASSOC)){
-                                echo "<tr>";
-                                echo "<td><img width ='150' heigth='211' src= 'images/".$l["url_pic"]."'></td>";
-                                echo "<td><a href='searchInfo.php?id=".$l['id']."'>".$l["title"]."</a></td>";
-                                echo "<td>";
+                                echo "<div class='container'>";
+                                echo "<div><img width ='150' heigth='211' src= 'images/".$l["url_pic"]."'></div>";
+                                echo "<div class='back-card'><a href='searchInfo.php?id=".$l['id']."'>".$l["title"]."</a>";
                                 $queryScore = "SELECT score FROM user_score WHERE user_score.id_movie= ".$l['id'];
                                 $resultScore = $pdo->query($queryScore);
                                 $suma = 0;
@@ -93,27 +76,15 @@
 
                                 $media = $suma/$cnt;
                                 echo $media;
-                                echo "<br>";
-                                echo "Total ratings: ".$cnt;
-                                echo "</td>";
-                                echo "<td>";
-                                $pp = (1682*$media2 + $cnt*$media)/(1682+$cnt);
-                                echo $pp;
-                                echo "</td>";
-                                echo "<td>".$l["date"]."</td>";
-                                echo "</tr>";
+                                echo "<span>Total ratings: ".$cnt."</span>";
+//                                 $pp = (1682*$media2 + $cnt*$media)/(1682+$cnt);
+//                                 echo $pp;
+                                echo "<span>".$l["date"]."</span>";
+                                echo "</div>";
+                                echo "</div>";
 
    }
-        echo "</tbody>";
-        echo "</table>";
         ?>
         </div>
-
-    <script>
-        $(document).ready(function () {
-            $('#tablax').DataTable();
-        });
-    </script>
-
 </body>
 </html>

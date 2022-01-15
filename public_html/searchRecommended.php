@@ -1,6 +1,11 @@
+<html>
+<head>
+<title>TVTIME</title>
+<link rel="stylesheet" type="text/css" href="styling/styles.css">
+</head>
 <body>
-<h1><a href = "principal.php">Videorec</a></h1>
-<h1 align='center'>Peliculas recomendadas: </h1>
+<h1><a href = "principal.php">TVT</a></h1>
+<h1 align='center'>Recommended movies </h1>
 
 <?php
         try {
@@ -34,4 +39,5 @@
 
 
       ?>
+      </body>
 </html>

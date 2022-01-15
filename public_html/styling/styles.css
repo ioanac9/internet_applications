@@ -79,3 +79,60 @@ input, select {
     padding: 7px;
     font-size: 15px;
 }
+
+#tablax {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+}
+
+.container {
+    width: 100%;
+    position: relative;
+    height: 400px;
+}
+
+.container > div > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.back-card {
+    position: absolute;
+    top: 0;
+    background: black;
+    height: 100%;
+    align-items: center;
+    width: 100%;
+    opacity: 0;
+    color: white;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 16px;
+    font-family: 'Poppins', sans-serif;
+    gap: 6px;
+}
+
+.container:hover {
+    transform: scale(1.1);
+
+}
+
+.back-card:hover {
+    opacity: 1;
+    -webkit-transition: opacity .25s ease-in-out .0s;
+    transition: opacity .25s ease-in-out .0s;
+    /*transform: scale(1.5);*/
+}
+
+a {
+    text-decorations: none;
+    color: white
+}
+
+.movie-info {
+    display: flex;
+    flex-direction: row;
+}
