@@ -65,23 +65,26 @@
             }
             $media2 = $suma2/$cnt2;
             while ($l=$result->fetch(PDO::FETCH_ASSOC)){
-                echo "<div class='container'>";
-                    echo "<div><img width ='150' heigth='211' src= 'images/".$l["url_pic"]."'></div>";
-                    echo "<div class='back-card'><a href='searchInfo.php?id=".$l['id']."'>".$l["title"]."</a>";
-                    $queryScore = "SELECT score FROM user_score WHERE user_score.id_movie= ".$l['id'];
-                    $resultScore = $pdo->query($queryScore);
-                    $suma = 0;
-                    $cnt = 0;
-                    while ($ll=$resultScore->fetch(PDO::FETCH_ASSOC)){
-                        $suma = $suma + $ll['score'];
-                        $cnt = $cnt + 1;
-                    }
-                    $media = $suma/$cnt;
-                    echo $media;
-                    echo "<span>Total ratings: ".$cnt."</span>";
-                    echo "<span>".$l["date"]."</span>";
+                $url_pic = $l["url_pic"];
+                if (strpos($url_pic, 'MV') !== false) {
+                    echo "<div class='container'>";
+                        echo "<div><img width ='150' heigth='211' src= 'images/".$l["url_pic"]."'></div>";
+                        echo "<div class='back-card'><a href='searchInfo.php?id=".$l['id']."'>".$l["title"]."</a>";
+                        $queryScore = "SELECT score FROM user_score WHERE user_score.id_movie= ".$l['id'];
+                        $resultScore = $pdo->query($queryScore);
+                        $suma = 0;
+                        $cnt = 0;
+                        while ($ll=$resultScore->fetch(PDO::FETCH_ASSOC)){
+                            $suma = $suma + $ll['score'];
+                            $cnt = $cnt + 1;
+                        }
+                        $media = $suma/$cnt;
+                        echo $media;
+                        echo "<span>Total ratings: ".$cnt."</span>";
+                        echo "<span>".$l["date"]."</span>";
+                        echo "</div>";
                     echo "</div>";
-                echo "</div>";
+                }
             }
         ?>
     </body>
