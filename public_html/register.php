@@ -17,7 +17,6 @@ try {
 if(isset($_POST["RegisterBtn"])){
 
         if ($password == $password2){
-                    echo"<h1>HELLO</h1>";
                 $queryy = "SELECT pic FROM users";
                 $resultt = $pdo->query($queryy);
                 while ($ll=$resultt->fetch(PDO::FETCH_ASSOC)){
