@@ -23,12 +23,10 @@
 .toolbar-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    border: 1px solid lightgrey;
     border-radius: 14px;
     width: 75%;
     color: black;
     margin: auto auto 30px;
-    box-shadow: 0 3px 6px lightgrey;
 }
 
 .toolbar-container>.submit-btn {
