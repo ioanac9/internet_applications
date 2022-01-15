@@ -34,13 +34,13 @@
 
 <div class="botones">
 <?php 	
-	if (isset($_COOKIE['sesion'])) {
+	if (isset($_COOKIE['session'])) {
 		echo "<h2><a href='miCuenta.php'><button>Mi cuenta</button></a></h2>";
 		echo "<form action='salir.php' method='GET'>";
 		echo"<h2><input type='submit' name='salir' value='Cerrar sesión' style='background-color:lightyellow'></Input></h2>";
         }else
 	{
-		echo "<h2><a href='iniciarSesion.html'><button>Iniciar sesión</button></a></h2>";	
+		echo "<h2><a href='iniciarsession.html'><button>Iniciar sesión</button></a></h2>";
 	}
 ?>
 </div>

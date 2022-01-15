@@ -27,7 +27,7 @@ if(isset($_POST["BotonGuardar"])){
 
 		$queryModificar = "UPDATE users SET users.name = '$nombre', users.edad = '$edad', 
 		users.sex = '$sexo', users.ocupacion = '$ocupacion',  
-		users.passwd = '$pass_hash' WHERE users.id =".$_COOKIE["sesion"];
+		users.passwd = '$pass_hash' WHERE users.id =".$_COOKIE["session"];
 		
 		$result = $pdo->query($queryModificar); 
 
@@ -42,7 +42,7 @@ if(isset($_POST["BotonGuardar"])){
 					$foto = $nombreSinExtension['filename'].$i.'.'.$nombreSinExtension['extension'];	
 				}
 			}	
-			$queryFoto = "UPDATE users SET users.pic = '$foto' WHERE users.id =".$_COOKIE["sesion"];
+			$queryFoto = "UPDATE users SET users.pic = '$foto' WHERE users.id =".$_COOKIE["session"];
 			$result = $pdo->query($queryFoto);
 			$ruta = 'fotos/'.$foto;
 			move_uploaded_file($_FILES['Foto']['tmp_name'],$ruta);

@@ -4,7 +4,7 @@
 <title>Videorec</title>
 </head>
 <body>
-<h1><a href = "principal.php">Videorec</a></h1>
+<h1><a href = "main.php">Videorec</a></h1>
 <h1 align='center'>Peliculas recomendadas: </h1>
 
 <?php
@@ -21,7 +21,7 @@
        		echo "<th>Título</th>";
 		echo "<th>Puntuación</th>";
         	echo "</tr>";
-		$queryRec= "SELECT * FROM recs WHERE recs.user_id='".$_COOKIE["sesion"]."' ORDER BY recs.rec_score DESC";
+		$queryRec= "SELECT * FROM recs WHERE recs.user_id='".$_COOKIE["session"]."' ORDER BY recs.rec_score DESC";
 		$resultRec = $pdo->query($queryRec);
 
 			for ($i = 0; $i < 10; $i++) {

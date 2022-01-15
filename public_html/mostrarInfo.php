@@ -4,7 +4,7 @@
 <link rel="stylesheet" href="css/estilo.css">
 
 <div>
-<h1><a  href = 'principal.php'>Videorec</a></h1>
+<h1><a  href = 'main.php'>Videorec</a></h1>
 </div>
 <h1 align='center'>Información de la película</h1>
 
@@ -53,7 +53,7 @@
 	echo "<br>";
 
 
-	if (isset($_COOKIE['sesion'])) {
+	if (isset($_COOKIE['session'])) {
 
 	echo "<br>";
 	
@@ -62,7 +62,7 @@
 	echo "<br>";
 
 	$idmov =$_GET['id'];
-	$queryPunt = "SELECT * FROM user_score WHERE user_score.id_user=".$_COOKIE['sesion']." AND user_score.id_movie=$idmov";
+	$queryPunt = "SELECT * FROM user_score WHERE user_score.id_user=".$_COOKIE['session']." AND user_score.id_movie=$idmov";
 	$resul = $pdo->query($queryPunt);
 	$h=$resul->fetch(PDO::FETCH_ASSOC);
 	if ($h != 0)
@@ -77,7 +77,7 @@
 	}
 
 	
-	echo "<input type='hidden' name='id_u' value=".$_COOKIE['sesion'].">";
+	echo "<input type='hidden' name='id_u' value=".$_COOKIE['session'].">";
 	echo "<input type='hidden' name='id_m' value=".$_GET['id'].">";
 	
 	echo   "<input id='radio1' type='radio' name='punt' value='1'>";
@@ -99,7 +99,7 @@
 	
 
 	$idmovie =$_GET['id'];
-	$queryPunt = "SELECT * FROM user_score WHERE user_score.id_user=".$_COOKIE['sesion']." AND user_score.id_movie=$idmovie";
+	$queryPunt = "SELECT * FROM user_score WHERE user_score.id_user=".$_COOKIE['session']." AND user_score.id_movie=$idmovie";
 	$resu = $pdo->query($queryPunt);
 	$t=$resu->fetch(PDO::FETCH_ASSOC);
 	if ($t != 0)
@@ -131,9 +131,9 @@
 	echo "</table>";	
 
 
-if (isset($_COOKIE['sesion'])) {
+if (isset($_COOKIE['session'])) {
 	echo '<form action="insertarComentario.php" method="POST">';
-	echo "<input type='hidden' name='idu' value=".$_COOKIE['sesion'].">";
+	echo "<input type='hidden' name='idu' value=".$_COOKIE['session'].">";
 	echo "<input type='hidden' name='idm' value=".$_GET['id'].">";
 	echo "<br>";
 	echo "Escribe un comentario:<br>";

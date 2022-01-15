@@ -8,7 +8,7 @@
 
 <div class="mod">
 
-<h1><a href ='principal.php'>TVTime</a></h1>
+<h1><a href ='main.php'>TVTime</a></h1>
 <h1>Update account information</h1>
 <form action = "update.php" method="POST" enctype="multipart/form-data">
 
@@ -19,7 +19,7 @@
 		 echo 'Connection failed: ' . $e->getMessage();
 	};
 
-	$query = "SELECT * FROM users WHERE users.id =".$_COOKIE["sesion"];
+	$query = "SELECT * FROM users WHERE users.id =".$_COOKIE["session"];
 	$result = $pdo->query($query);
 
 	while ($l=$result->fetch(PDO::FETCH_ASSOC)){

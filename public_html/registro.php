@@ -46,8 +46,8 @@ if(isset($_POST["BotonRegistro"])){
 		$r = $pdo->query($q);
 		$l=$r->fetch(PDO::FETCH_ASSOC);
 		echo "<script>alert('Usuario registrado')</script>";
-		setcookie('sesion',$l['id']);
- 		echo "<script>window.location = 'principal.php' </script>";
+		setcookie('session',$l['id']);
+ 		echo "<script>window.location = 'main.php' </script>";
 		}
     
 

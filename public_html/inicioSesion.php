@@ -26,11 +26,11 @@ if(isset($_GET["BotonEntrar"]))
 
 	if ($l)
 	{
-		setcookie('sesion',$l['id']);
-        	echo '<script>document.location = "principal.php"</script>';
+		setcookie('session',$l['id']);
+        	echo '<script>document.location = "main.php"</script>';
 	}else{
 		echo "<script> alert('Credenciales incorrectos.')</script>";
-		echo "<script>document.location = 'iniciarSesion.html'</script>";
+		echo "<script>document.location = 'iniciarsession.html'</script>";
 	}
 }
 

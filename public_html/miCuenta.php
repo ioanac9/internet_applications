@@ -17,7 +17,7 @@
 <title>Videorec</title>
 </head>
 <body>
-<h1><a href = "principal.php">Videorec</a></h1>
+<h1><a href = "main.php">Videorec</a></h1>
 <h1 align='center'>Información de usuario</h1>
 
 	<?php
@@ -27,7 +27,7 @@
 		echo 'Connection failed: '. $e->getMessage();
 	};
         
-        $query = "SELECT * FROM users WHERE users.id=".$_COOKIE["sesion"];
+        $query = "SELECT * FROM users WHERE users.id=".$_COOKIE["session"];
 	$result = $pdo->query($query);
         
         echo "<table border='1' align='center' style='width:100%'>";
