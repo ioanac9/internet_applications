@@ -54,6 +54,8 @@
         $media2 = $suma2/$cnt2;
 
                         while ($l=$result->fetch(PDO::FETCH_ASSOC)){
+                        $url_pic = $l["url_pic"];
+                            if (strpos($url_pic, 'MV') !== false) {
                                 echo "<div class='container'>";
                                 echo "<div><img width ='150' heigth='211' src= 'images/".$l["url_pic"]."'></div>";
                                 echo "<div class='back-card'><a href='searchInfo.php?id=".$l['id']."'>".$l["title"]."</a>";
@@ -73,6 +75,7 @@
                                 echo "<span>".$l["date"]."</span>";
                                 echo "</div>";
                                 echo "</div>";
+                                }
 
    }
         ?>
