@@ -81,7 +81,7 @@
         ?>
 
         <div class='account-container'>
-        <h2 style='margin-right: 20px'>Recomendaciones:</h2>
+        <h2 style='margin-right: 20px'>Recommendations:</h2>
         <div class='btn-container'>
             <a style='height: 100%; display: flex; justify-content: center; align-items:center' class='submit-btn' href='../recommandations.php'>Update recommendations</a>
             <a style='height: 100%; display: flex; justify-content: center; align-items:center' class='submit-btn' href='../searchRecommended.php'>Search recommendations</a>
