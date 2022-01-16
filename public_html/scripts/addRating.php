@@ -67,7 +67,7 @@
                     $resultMov = $pdo->query($queryMov);
                     $lll=$resultMov->fetch(PDO::FETCH_ASSOC);
                     echo "<tr>";
-                    echo "<td><img width ='150' heigth='211' src= 'images/".$lll["url_pic"]."'></td>";
+                    echo "<td><img width ='150' heigth='211' src= '../images/".$lll["url_pic"]."'></td>";
                     echo "<td>".$lll["title"]."</td>";
                     echo "<td>".$ll["rec_score"]."</td>";
                     echo "</tr>";

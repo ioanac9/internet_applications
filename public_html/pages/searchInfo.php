@@ -47,6 +47,8 @@
 		    echo 'Connection failed: ' . $e->getMessage();
 	    };
         $session = $_COOKIE['session'];
+        $session_id = $_COOKIE['session_id'];
+
         $query = "SELECT * FROM movie WHERE movie.id=".$_GET['id'];
 	    $result = $pdo->query($query);
 
@@ -92,7 +94,7 @@
         if (isset($session)) {
             echo "<h1>Your score for the movie <img style='height:30px' src='../images/star.png'/></h1>";
 	        $movieId = $_GET['id'];
-	        $queryMovieScore = "SELECT * FROM user_score WHERE user_score.id_user='$session' AND user_score.id_movie='$movieId'";
+	        $queryMovieScore = "SELECT * FROM user_score WHERE user_score.id_user='$session_id' AND user_score.id_movie='$movieId'";
 	        $resultQueryMovieScore = $pdo->query($queryMovieScore);
 	        $userScore=$resultQueryMovieScore->fetch(PDO::FETCH_ASSOC);
 	        if ($userScore != 0) {
