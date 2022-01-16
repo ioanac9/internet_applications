@@ -40,7 +40,7 @@ if(isset($_POST["RegisterBtn"])){
                 $l=$r->fetch(PDO::FETCH_ASSOC);
                 echo "<script>alert('Registered user ')</script>";
                 setcookie('session',$l['name']);
-                    echo "<script>window.location = 'principal.php' </script>";
+                    echo "<script>window.location = 'main.php' </script>";
                 }
         }
         else {

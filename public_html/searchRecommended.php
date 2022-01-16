@@ -4,7 +4,7 @@
 <link rel="stylesheet" type="text/css" href="styling/styles.css">
 </head>
 <body>
-<h1><a href = "principal.php">TVT</a></h1>
+<h1><a href = "main.php">TVT</a></h1>
 <h1 align='center'>Recommended movies </h1>
 
 <?php
@@ -17,11 +17,11 @@
 
                 echo "<table border='1' align='center' style='width:60%'>";
                 echo "<tr>";
-                echo "<th width ='150' heigth='211'>Foto</th>";
-                echo "<th>Título</th>";
-                echo "<th>Puntuación</th>";
+                echo "<th width ='150' height='211'>Photo</th>";
+                echo "<th>Title</th>";
+                echo "<th>Rating</th>";
                 echo "</tr>";
-                $queryRec= "SELECT * FROM recs WHERE recs.user_id='".$_COOKIE["sesion"]."' ORDER BY recs.rec_score DESC";
+                $queryRec= "SELECT * FROM recs WHERE recs.user_id='".$_COOKIE["session"]."' ORDER BY recs.rec_score DESC";
                 $resultRec = $pdo->query($queryRec);
 
                         for ($i = 0; $i < 10; $i++) {
@@ -30,7 +30,7 @@
                                 $resultMov = $pdo->query($queryMov);
                                 $lll=$resultMov->fetch(PDO::FETCH_ASSOC);
                                 echo "<tr>";
-                                echo "<td><img width ='150' heigth='211' src= 'images/".$lll["url_pic"]."'></td>";
+                                echo "<td><img width ='150' height='211' src= 'images/".$lll["url_pic"]."'></td>";
                                 echo "<td>".$lll["title"]."</td>";
                                 echo "<td>".$ll["rec_score"]."</td>";
                                 echo "</tr>";

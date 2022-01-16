@@ -16,13 +16,13 @@ if (isset($_GET["LoginBtn"])) {
         $resultPass = $pdo->query($queryPass);
         $finalResult=$resultPass->fetch(PDO::FETCH_ASSOC);
 
-        if ($finalResult) {
+        if ($finalResult)
+        {
                 setcookie('session',$finalResult['name']);
-                echo '<script>document.location = "principal.php"</script>';
+                echo '<script>document.location = "main.php"</script>';
+        }else{
+                echo "<script> alert('Invalid credentials provided' + $finalResult)</script>";
+                echo "<script>document.location = 'index.html'</script>";
         }
-
-        echo "<script> alert('Credentials are invalid!')</script>";
-        echo "<script>document.location = 'index.html'</script>";
-
 }
 ?>
