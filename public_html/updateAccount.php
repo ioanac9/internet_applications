@@ -23,7 +23,7 @@
 
 <body>
     <div class="nav-bar">
-            <a href='principal.php'>
+            <a href='main.php'>
                 <img class='logo' src="images/logo_movie.png" alt="logo of the company.">
             </a>
             <div class='nav-bar-menu'>
