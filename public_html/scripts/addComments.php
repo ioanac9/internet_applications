@@ -16,7 +16,7 @@ if(isset($_POST['sendComment'])){
 
     $query = "INSERT INTO moviecomments(movie_id,user_id,comment) values ('$movieId', '$userId', '$comment')";
     $result = $pdo->query($query);
-    echo"<script>window.location= 'searchInfo.php?id=".$movieId."'</script>";
+    echo"<script>window.location= '../pages/searchInfo.php?id=".$movieId."'</script>";
 
 }
 

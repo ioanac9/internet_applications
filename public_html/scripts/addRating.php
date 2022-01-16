@@ -11,7 +11,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 
         <!--  CSS  -->
-        <link rel="stylesheet" type="text/css" href="styling/styles.css">
+        <link rel="stylesheet" type="text/css" href="../styling/styles.css">
 
         <!--  Fonts  -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -23,27 +23,27 @@
     </head>
     <body>
         <div class="nav-bar">
-        <a href='main.php'>
-            <img class='logo' src="images/logo_movie.png" alt="logo of the company.">
-        </a>
-        <div class='nav-bar-menu'>
-            <?php
+            <a href='../pages/main.php'>
+                <img class='logo' src="../images/logo_movie.png" alt="logo of the company.">
+            </a>
+            <div class='nav-bar-menu'>
+                <?php
 
-            if (isset($_COOKIE['session'])) {
-                echo "<a class='submit-btn' href='myAccount.php'>My account</a>";
-                echo "<form action='logout.php' method='GET'>";
-                echo "<input class='submit-btn' type='submit' name='exit' value='Logout'/>";
-                echo "</form>";
-            } else {
-                echo "<a class='submit-btn' href='index.html'>Login/Register</a>";
-            }
-            ?>
+                if (isset($_COOKIE['session'])) {
+                    echo "<a class='submit-btn' href='../pages/myAccount.php'>My account</a>";
+                    echo "<form action='logout.php' method='GET'>";
+                    echo "<input class='submit-btn' type='submit' name='exit' value='Logout'/>";
+                    echo "</form>";
+                } else {
+                    echo "<a class='submit-btn' href='../index.html'>Login/Register</a>";
+                }
+                ?>
+            </div>
         </div>
-    </div>
         <h1>Recommended Movies</h1>
 
         <?php
-            $userId = $_GET["user_id"];
+            $userId = $_COOKIE["session_id"];
             $movieID = $_GET["mover_id"];
 
             try {

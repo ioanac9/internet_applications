@@ -9,20 +9,21 @@
         ├── buttons.css
         ├── forms.css
         ├── styles.css
-    ├── addComments.php
-    ├── addRating.php
-    ├── exit.php
+    ├── pages
+        ├── main.php
+        ├── myAccount.php
+        ├── searchInfo.php
+        ├── updateAccount.php
+    ├── scripts
+        ├── addComments.php
+        ├── addRating.php
+        ├── deleteAccount.php
+        ├── login.php
+        ├── logout.php
+        ├── register.php
+        ├── update.php
+        ├── updateRating.php
     ├── index.html
-    ├── login.php
-    ├── logout.php
-    ├── myAccount.php
-    ├── main.php
     ├── recommandations.php
-    ├── register.php
-    ├── removeAccount.php
-    ├── searchInfo.html
     ├── searchRecommended.php
-    ├── update.php
-    ├── updateData.php
-    └── updateRating.php
 └── README.md

@@ -11,7 +11,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 
         <!--  CSS  -->
-        <link rel="stylesheet" type="text/css" href="styling/styles.css">
+        <link rel="stylesheet" type="text/css" href="../styling/styles.css">
 
         <!--  Fonts  -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -23,7 +23,7 @@
             function remove(){
                 const message = window.confirm('Are you sure you want to delete your account?');
                 if (message){
-                    window.location = 'deleteAccount.php';
+                    window.location = '../scripts/deleteAccount.php';
                 }else{
                     window.location = 'myAccount.php';
                 }
@@ -35,17 +35,17 @@
     <body>
         <div class="nav-bar">
             <a href='main.php'>
-                <img class='logo' src="images/logo_movie.png" alt="logo of the company.">
+                <img class='logo' src="../images/logo_movie.png" alt="logo of the company.">
             </a>
             <div class='nav-bar-menu'>
                 <?php
                     if (isset($_COOKIE['session'])) {
                             echo "<a class='submit-btn' href='myAccount.php'>My account</a>";
-                            echo "<form action='logout.php' method='GET'>";
+                            echo "<form action='../scripts/logout.php' method='GET'>";
                                 echo "<input class='submit-btn' type='submit' name='exit' value='Logout'/>";
                             echo "</form>";
                     } else {
-                            echo "<a class='submit-btn' href='index.html'>Login/Register</a>";
+                            echo "<a class='submit-btn' href='../index.html'>Login/Register</a>";
                     }
                 ?>
             </div>
@@ -83,8 +83,8 @@
         <div class='account-container'>
         <h2 style='margin-right: 20px'>Recomendaciones:</h2>
         <div class='btn-container'>
-            <a style='height: 100%; display: flex; justify-content: center; align-items:center' class='submit-btn' href='recommandations.php'>Update recommendations</a>
-            <a style='height: 100%; display: flex; justify-content: center; align-items:center' class='submit-btn' href='searchRecommended.php'>Search recommendations</a>
+            <a style='height: 100%; display: flex; justify-content: center; align-items:center' class='submit-btn' href='../recommandations.php'>Update recommendations</a>
+            <a style='height: 100%; display: flex; justify-content: center; align-items:center' class='submit-btn' href='../searchRecommended.php'>Search recommendations</a>
         </div>
     </body>
 </html>

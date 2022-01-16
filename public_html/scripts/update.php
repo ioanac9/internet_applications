@@ -18,12 +18,12 @@ if(isset($_POST["UpdateBtn"])){
 
     if (empty($password) == true && empty($password2) == true) {
         echo "<script> alert('You also need to change your password')</script>";
-        echo"<script>window.location= 'updateAccount.php'</script>";
+        echo"<script>window.location= '../pages/updateAccount.php'</script>";
     }
 
     if ($password != $password2) {
         echo "<script> alert('Your passwords needs to match')</script>";
-        echo"<script>window.location= 'updateAccount.php'</script>";
+        echo"<script>window.location= '../pages/updateAccount.php'</script>";
     }
 
     $hashedPassword = sha1($password);
@@ -46,6 +46,6 @@ if(isset($_POST["UpdateBtn"])){
         move_uploaded_file($_FILES['Foto']['tmp_name'],$ruta);
     }
     echo "<script>alert('Updated successfully')</script>";
-    echo "<script>window.location= 'myAccount.php' </script>";
+    echo "<script>window.location= '../pages/myAccount.php' </script>";
 }
 

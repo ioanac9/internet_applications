@@ -11,7 +11,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 
     <!--  CSS  -->
-        <link rel="stylesheet" type="text/css" href="styling/styles.css">
+        <link rel="stylesheet" type="text/css" href="../styling/styles.css">
 
     <!--  Fonts  -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -23,18 +23,18 @@
     </head>
     <body>
         <div class="nav-bar">
-            <a href='main.php'>
-                <img class='logo' src="images/logo_movie.png" alt="logo of the company.">
+            <a href='pages/main.php'>
+                <img class='logo' src="../images/logo_movie.png" alt="logo of the company.">
             </a>
             <div class='nav-bar-menu'>
                 <?php
                     if (isset($_COOKIE['session'])) {
                             echo "<a class='submit-btn' href='myAccount.php'>My account</a>";
-                            echo "<form action='logout.php' method='GET'>";
+                            echo "<form action='../scripts/logout.php' method='GET'>";
                                 echo "<input class='submit-btn' type='submit' name='exit' value='Logout'/>";
                             echo "</form>";
                     } else {
-                            echo "<a class='submit-btn' href='index.html'>Login/Register</a>";
+                            echo "<a class='submit-btn' href='../index.html'>Login/Register</a>";
                     }
                 ?>
             </div>
@@ -49,39 +49,39 @@
                 echo 'Connection failed: ' . $e->getMessage();
             };
 
-            $query = "SELECT * FROM movie";
-            $result = $pdo->query($query);
+            $queryGetAllMovies = "SELECT * FROM movie";
+            $resultQueryMovies = $pdo->query($queryGetAllMovies);
         ?>
 
         <?php
             echo "<div id='movies-container' style='width:100%' border='1'>";
-            $queryPonderada = "SELECT score FROM user_score";
-            $resultPond = $pdo->query($queryPonderada);
+            $queryGetUserScores = "SELECT score FROM user_score";
+            $resultPond = $pdo->query($queryGetUserScores);
             $suma2=0;
             $cnt2 = 0;
-            while ($lll=$resultPond->fetch(PDO::FETCH_ASSOC)){
-                $suma2 = $suma2 + $lll['score'];
+            while ($score=$resultPond->fetch(PDO::FETCH_ASSOC)){
+                $suma2 = $suma2 + $score['score'];
                 $cnt2 = $cnt2 + 1;
             }
             $media2 = $suma2/$cnt2;
-            while ($l=$result->fetch(PDO::FETCH_ASSOC)){
-                $url_pic = $l["url_pic"];
+            while ($movie=$resultQueryMovies->fetch(PDO::FETCH_ASSOC)){
+                $url_pic = $movie["url_pic"];
                 if (strpos($url_pic, 'MV') !== false) {
                     echo "<div class='container'>";
-                        echo "<div><img width ='150' heigth='211' src= 'images/".$l["url_pic"]."'></div>";
-                        echo "<div class='back-card'><a href='searchInfo.php?id=".$l['id']."'>".$l["title"]."</a>";
-                        $queryScore = "SELECT score FROM user_score WHERE user_score.id_movie= ".$l['id'];
+                        echo "<div><img width ='150' heigth='211' src= '../images/".$movie["url_pic"]."'></div>";
+                        echo "<div class='back-card'><a href='searchInfo.php?id=".$movie['id']."'>".$movie["title"]."</a>";
+                        $queryScore = "SELECT score FROM user_score WHERE user_score.id_movie= ".$movie['id'];
                         $resultScore = $pdo->query($queryScore);
                         $suma = 0;
                         $cnt = 0;
-                        while ($ll=$resultScore->fetch(PDO::FETCH_ASSOC)){
-                            $suma = $suma + $ll['score'];
+                        while ($score2=$resultScore->fetch(PDO::FETCH_ASSOC)){
+                            $suma = $suma + $score2['score'];
                             $cnt = $cnt + 1;
                         }
                         $media = $suma/$cnt;
                         echo $media;
                         echo "<span>Total ratings: ".$cnt."</span>";
-                        echo "<span>".$l["date"]."</span>";
+                        echo "<span>".$movie["date"]."</span>";
                         echo "</div>";
                     echo "</div>";
                 }
