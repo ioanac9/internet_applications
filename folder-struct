@@ -1,0 +1,29 @@
+.
+├── public_html
+    ├── images (assets + movie photos)
+    ├── octave
+    ├── js
+    ├── photos (profile photos)
+    ├── styling
+        ├── authentication.css
+        ├── buttons.css
+        ├── forms.css
+        ├── styles.css
+    ├── pages
+        ├── main.php
+        ├── myAccount.php
+        ├── searchInfo.php
+        ├── updateAccount.php
+    ├── scripts
+        ├── addComments.php
+        ├── addRating.php
+        ├── deleteAccount.php
+        ├── login.php
+        ├── logout.php
+        ├── register.php
+        ├── update.php
+        ├── updateRating.php
+    ├── index.html
+    ├── recommandations.php
+    ├── searchRecommended.php
+└── README.md

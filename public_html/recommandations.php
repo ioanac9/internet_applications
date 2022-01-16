@@ -1,7 +1,7 @@
 <?php
 	try {
 		$ruta = "/home/alumnos/ai54/public_html/octave\r\n";
-		$fun = "updateRecomendation(".$_COOKIE['sesion'].")\r\n";
+		$fun = "updateRecomendation(".$_COOKIE['session'].")\r\n";
 		$info = $ruta.$fun.chr(0);
 
 		$socket = socket_create(AF_INET, SOCK_STREAM, SOL_TCP);

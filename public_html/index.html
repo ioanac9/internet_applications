@@ -41,7 +41,7 @@
     </head>
     <body>
         <div class="nav-bar">
-            <a href='principal.php'>
+            <a href='pages/main.php'>
                 <img class='logo' src="images/logo_movie.png" alt="logo of the company.">
             </a>
         </div>
@@ -52,7 +52,7 @@
                 <div id="register-toolbar" class="submit-btn" onclick="toggleToolbar('register')">Register</div>
             </div>
 
-            <form action="login.php" method="GET" id="login-form" class="active">
+            <form action="scripts/login.php" method="GET" id="login-form" class="active">
                 <label class="form-row">
                     Username
                     <input name="username_login" type="text">
@@ -64,7 +64,7 @@
                 <input class="submit-btn margin-top-20" type="submit" value="Login" name="LoginBtn">
             </form>
 
-            <form action="register.php" method="POST" enctype="multipart/form-data" id="register-form">
+            <form action="scripts/register.php" method="POST" enctype="multipart/form-data" id="register-form">
                 <label class="form-row">
                     Username
                     <input name="username_register" type="text">
