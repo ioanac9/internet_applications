@@ -21,39 +21,49 @@ input:not([type="submit"]), textarea {
     padding: 0 10px;
     transition: box-shadow 0.1s, background-color 0.05s, background-image 0.1s, border-radius 0.1s, filter 0.05s;
 }
+
 input:not([type="submit"])::placeholder, textarea::placeholder {
     color: #aaa;
 }
+
 input:not([type="submit"]):hover, textarea:hover {
     filter: drop-shadow(0 0 4px rgba(0, 0, 0, 0.07));
 }
+
 input:not([type="submit"]).error, textarea.error {
     box-shadow: 0 0 1px rgba(0, 0, 0, 0.1), inset 0 0 0 1px #f84d6e;
 }
+
 input:not([type="submit"]):focus, textarea:focus {
     box-shadow: 0 0 3px rgba(0, 0, 0, 0.1), inset 0 0 0 1.5px #009db2;
     outline: none;
 }
+
 input:not([type="submit"]).error-input, textarea.error-input {
     box-shadow: 0 0 3px rgba(247, 62, 98, 0.1), inset 0 0 0 1px #f84d6e;
 }
+
 input:not([type="submit"]).big-input, textarea.big-input {
     height: 50px;
 }
+
 input:not([type="submit"]), select {
     height: 40px;
 }
+
 input:not([type="submit"]).with-icon {
     background-size: 16px;
     background-position: calc(100% - 10px) 50%;
     padding-right: calc(16px + 10px * 2);
     background-repeat: no-repeat;
 }
+
 /* Chrome, Safari, Edge, Opera */
 input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
 }
+
 /* Firefox */
 input[type=number] {
     -moz-appearance: textfield;

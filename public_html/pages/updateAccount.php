@@ -40,8 +40,8 @@
             </div>
     </div>
     <div class="margin-top-menu">
-        <h1>Update account information</h1>
-        <form action = "../scripts/update.php" method="POST" enctype="multipart/form-data">
+        <h1 align='center'>Update account information</h1>
+        <form class='update-info' action = "../scripts/update.php" method="POST" enctype="multipart/form-data">
             <?php
                 try {
                     $pdo = new PDO('mysql:host=localhost;dbname=Asd', 'root','Rodeapps123');
@@ -55,20 +55,28 @@
 
                 while ($l=$result->fetch(PDO::FETCH_ASSOC)){
                     echo "<label class='form-row'> Username:<input name='username_register' type= 'text' value = '".$l["name"]."'></label>";
-                    echo "<label class='form-row'> Password:<input name='password_register' type= 'text'></label>";
-                    echo "<label class='form-row'> Confirm Password:<input name='confirm_password_register' type= 'text'></label>";
+                    echo "<label class='form-row'> Password:<input name='password_register' type= 'password'></label>";
+                    echo "<label class='form-row'> Confirm Password:<input name='confirm_password_register' type= 'password'></label>";
                     echo "<label class='form-row'> Age:<input name='age_register' type= 'text' value = '".$l["edad"]."'></label>";
                     echo "<label class='form-row'>Gender:</label>";
                     if($l['sex'] == 'M'){
+                        echo '<div class="radio-container">';
                         echo '<input type="radio" id="M" name="gender_register" value="M" checked>';
-                        echo '<label for="M">Male</label><br>';
+                        echo '<label for="M">Male</label>';
+                        echo '</div>';
+                        echo '<div class="radio-container">';
                         echo '<input type="radio" id="F" name="gender_register" value="F">';
                         echo '<label for="F">Female</label>';
+                        echo '</div>';
                     }else{
+                        echo '<div class="radio-container">';
                         echo '<input type="radio" id="M" name="gender_register" value="M">';
                         echo '<label for="M">Male</label><br>';
+                        echo '</div>';
+                        echo '<div class="radio-container">';
                         echo '<input type="radio" id="F" name="gender_register" value="F" checked>';
                         echo '<label for="F">Female</label>';
+                        echo '</div>';
                     }
                     echo "<label class='form-row'> Occupation:<input name='occupation_register' type= 'text' value = '".$l["ocupacion"]."'></label>";
                     echo "<label class='form-row'> Profile photo:<input name='file_register' type= 'file' value = '".$l["pic"]."'><img width ='150' height='211' src= 'photos/".$l["pic"]."'></label>";

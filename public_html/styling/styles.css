@@ -101,10 +101,14 @@
     margin-bottom: 10px;
 }
 
-.account-container {
+.account-container, .recommendations-container {
     display: flex;
     width: 50%;
     margin: 100px auto 0;
+}
+
+.recommendations-container {
+    flex-direction: column;
 }
 
 .account-info {
@@ -114,7 +118,24 @@
     flex-direction: column;
     margin-left: 30px;
 }
-.btn-container{
+
+.btn-container {
     display: flex;
-    gap:15px;
+    gap: 15px;
+}
+
+.update-info {
+    flex-direction: column;
+    width: 50%;
+    margin: auto;
+    border: 1px solid lightgrey;
+    padding: 7% 12%;
+    border-radius: 7px;
+    background: rgba(125, 125, 125, 0.1);
+    box-shadow: 0 3px 6px lightgrey;
+}
+
+.radio-container {
+    display: flex;
+    align-items: center;
 }

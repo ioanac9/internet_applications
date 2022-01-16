@@ -72,15 +72,15 @@
                         echo "<div><span class='desc'>Age: </span>".$l["edad"]."</div>";
                         echo "<div><span class='desc'> Occupation: </span>".$l["ocupacion"]."</div>";
                         echo "<div class='btn-container'>";
-                            echo "<a href='updateAccount.php'><button class='submit-btn' style='height: 100%'>Update your information</button></a>";
-                            echo "<input type='button' class='submit-btn' onclick='remove()' value='Delete account'>";
+                            echo "<a href='updateAccount.php'><button class='submit-btn'>Update your information</button></a>";
+                            echo "<button class='submit-btn' onclick='remove()'> Delete account</button>";
                         echo "</div>";
                     echo "</div>";
                 echo "</div>";
             }
         ?>
 
-        <div class='account-container'>
+        <div class='recommendations-container'>
         <h2 style='margin-right: 20px'>Recommendations:</h2>
         <div class='btn-container'>
             <a style='height: 100%; display: flex; justify-content: center; align-items:center' class='submit-btn' href='../recommandations.php'>Update recommendations</a>
