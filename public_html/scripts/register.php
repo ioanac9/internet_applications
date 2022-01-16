@@ -33,7 +33,6 @@ if(isset($_POST["RegisterBtn"])){
                 $result = $pdo->query($queryRegister);
                 $route = 'images/'.$photo;
                 move_uploaded_file($_FILES['file_register']['tmp_name'],$route);
-
                 if($queryRegister){
                 $q="SELECT id FROM users WHERE users.name='$name'";
                 $r = $pdo->query($q);
@@ -50,4 +49,3 @@ if(isset($_POST["RegisterBtn"])){
         }
 }
 ?>
-

@@ -79,8 +79,8 @@
                         echo '</div>';
                     }
                     echo "<label class='form-row'> Occupation:<input name='occupation_register' type= 'text' value = '".$l["ocupacion"]."'></label>";
-                    echo "<label class='form-row'> Profile photo:<input name='file_register' type= 'file' value = '".$l["pic"]."'><img width ='150' height='211' src= 'photos/".$l["pic"]."'></label>";
-                    echo  "<input type='submit' value='Submit' name='UpdateBtn' class='submit-btn'>";
+                    echo "<label class='form-row'> Profile photo:<input name='file_register' type= 'file' value = '".$l["pic"]."'></label>";
+                    echo  "<input type='submit' value='Submit' name='UpdateBtn' class='submit-btn update-acc'>";
             }
             ?>
         </form>

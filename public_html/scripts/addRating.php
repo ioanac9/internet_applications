@@ -54,7 +54,7 @@
 
             echo "<table border='1' align='center' style='width:60%'>";
                 echo "<tr>";
-                    echo "<th width ='150' heigth='211'>Photo</th>";
+                    echo "<th width ='150''>Photo</th>";
                     echo "<th>Title</th>";
                     echo "<th>Rank</th>";
                 echo "</tr>";
@@ -67,7 +67,7 @@
                     $resultMov = $pdo->query($queryMov);
                     $lll=$resultMov->fetch(PDO::FETCH_ASSOC);
                     echo "<tr>";
-                    echo "<td><img width ='150' heigth='211' src= '../images/".$lll["url_pic"]."'></td>";
+                    echo "<td><img width ='150' src= '../images/".$lll["url_pic"]."'></td>";
                     echo "<td>".$lll["title"]."</td>";
                     echo "<td>".$ll["rec_score"]."</td>";
                     echo "</tr>";

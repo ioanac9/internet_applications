@@ -68,7 +68,7 @@
                 $url_pic = $movie["url_pic"];
                 if (strpos($url_pic, 'MV') !== false) {
                     echo "<div class='container'>";
-                        echo "<div><img width ='150' heigth='211' src= '../images/".$movie["url_pic"]."'></div>";
+                        echo "<div><img src= '../images/".$movie["url_pic"]."'></div>";
                         echo "<div class='back-card'><a href='searchInfo.php?id=".$movie['id']."'>".$movie["title"]."</a>";
                         $queryScore = "SELECT score FROM user_score WHERE user_score.id_movie= ".$movie['id'];
                         $resultScore = $pdo->query($queryScore);

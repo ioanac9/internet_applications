@@ -74,7 +74,7 @@
                     $queryC = "SELECT * FROM moviecomments WHERE moviecomments.movie_id=".$_GET['id'];
                     $resultC = $pdo->query($queryC);
                     echo "<div class='reviews'>";
-                        echo "<div style='display:flex; align-items:center'><h2>Comments: </h2></div>";
+                        echo "<div style='display:flex; align-items:center'><h2>Reviews: </h2></div>";
                         echo "<div class='comments-section'>";
                             while($a=$resultC->fetch(PDO::FETCH_ASSOC)){
                                 $queryU = "SELECT * from users WHERE users.id =".$a['user_id'];
@@ -92,7 +92,8 @@
             echo "</div>";
         echo "</div>";
         if (isset($session)) {
-            echo "<h1>Your score for the movie <img style='height:30px' src='../images/star.png'/></h1>";
+            echo "<div class='rating-container'>";
+            echo "<div class='score-title'><h1>Your score for the movie</h1> <img style='height:30px' src='../images/star.png'/></div>";
 	        $movieId = $_GET['id'];
 	        $queryMovieScore = "SELECT * FROM user_score WHERE user_score.id_user='$session_id' AND user_score.id_movie='$movieId'";
 	        $resultQueryMovieScore = $pdo->query($queryMovieScore);
@@ -101,7 +102,7 @@
 	            echo "<form action = '../scripts/updateRating.php' method='GET'>";
 	        }
 	        else {
-	            echo "<form action = '../scripts/addRating.php' method='GET'>";
+	            echo "<form class='add-rating' action = '../scripts/addRating.php' method='GET'>";
 	        }
 
             $query = "SELECT * FROM users WHERE users.name='$session'";
@@ -112,18 +113,29 @@
                 echo "<input type='hidden' name='user_id' value=".$l['id'].">";
             }
 	        echo "<input type='hidden' name='mover_id' value=".$_GET['id'].">";
-
+            echo   "<div class='add-rating-container'>";
+            echo   "<div class='radio-container'>";
 	        echo   "<input id='radio1' type='radio' name='score' value='1'>";
 	        echo    "<label for='radio1'>1</label>";
+	        echo    "</div>";
+	        echo   "<div class='radio-container'>";
 	        echo   "<input id='radio2' type='radio' name='score' value='2'>";
 	        echo    "<label for='radio2'>2</label>";
+	        echo    "</div>";
+	        echo   "<div class='radio-container'>";
             echo   "<input id='radio3' type='radio' name='score' value='3'>";
             echo    "<label for='radio3'>3</label>";
+            echo    "</div>";
+            echo   "<div class='radio-container'>";
             echo   "<input id='radio4' type='radio' name='score' value='4'>";
             echo    "<label for='radio4'>4</label>";
+            echo    "</div>";
+            echo   "<div class='radio-container'>";
             echo   "<input id='radio5' type='radio' name='score' value='5'>";
             echo    "<label for='radio5'>5</label>";
+            echo    "</div>";
             echo	"<input style='margin-left: 20px;' class='submit-btn' type='submit' value='Rank' name='ReviewBtn'>";
+            echo    "</div>";
             echo	"</form>";
 
             $idmovie =$_GET['id'];
@@ -138,13 +150,15 @@
 
 
         if (isset($_COOKIE['session'])) {
-            echo '<form action="../scripts/addComments.php" method="POST">';
+            echo '<form class="add-comment-form" action="../scripts/addComments.php" method="POST">';
             echo "<input type='hidden' name='userId' value=".$userid.">";
             echo "<input type='hidden' name='movieId' value=".$_GET['id'].">";
             echo "<br>";
             echo "Write a comment:<br>";
-            echo "<input name='comment' type='text' style='width:20%'>";
+            echo "<textarea name='comment' style='height:120px' type='text'></textarea>";
             echo "<input class='submit-btn' type='submit' value='Comment' name='sendComment'>";
+            echo    "</div>";
+
         }
 
     ?>

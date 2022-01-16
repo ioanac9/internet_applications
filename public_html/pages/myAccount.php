@@ -66,7 +66,7 @@
 
             while ($l=$result->fetch(PDO::FETCH_ASSOC)) {
                 echo "<div class='account-container'>";
-                    echo "<img width ='150' heigth='211' src= 'fotos/".$l["pic"]."'>";
+                    echo "<img width ='150' src= '../photos/".$l["pic"]."'>";
                     echo "<div class='account-info'>";
                         echo "<div><span class='desc'>Name: </span>".$l["name"]."</div>";
                         echo "<div><span class='desc'>Age: </span>".$l["edad"]."</div>";
