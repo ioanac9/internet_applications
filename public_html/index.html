@@ -1,107 +1,91 @@
 <html lang="en">
-    <head>
-        <title>Register | Login</title>
+<head>
+    <title>Register | Login</title>
 
     <!--  Meta Data  -->
-        <meta charset="UTF-8">
-        <meta name="description" content="Register and Login page created for InternetApplication class">
-        <meta name="keywords" content="HTML, CSS, JavaScript, php">
-        <meta name="author" content="Oscar Gal | Ioana Constantinescu">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta charset="UTF-8">
+    <meta name="description" content="Register and Login page created for InternetApplication class">
+    <meta name="keywords" content="HTML, CSS, JavaScript, php">
+    <meta name="author" content="Oscar Gal | Ioana Constantinescu">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 
     <!--  CSS  -->
-        <link rel="stylesheet" type="text/css" href="styling/styles.css">
+    <link rel="stylesheet" type="text/css" href="styling/styles.css">
 
     <!--  Fonts  -->
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@200&family=Poppins:wght@300&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@200&family=Poppins:wght@300&display=swap"
+          rel="stylesheet">
 
     <!--  JS  -->
-        <script>
-            function toggleToolbar(activeElement) {
-                let loginForm = document.getElementById("login-form");
-                let registerForm = document.getElementById("register-form");
-                let loginButton = document.getElementById("login-toolbar")
-                let registerButton = document.getElementById("register-toolbar")
-                if (activeElement === 'login') {
-                    loginForm.classList.add('active')
-                    loginButton.classList.add('active-toolbar')
-                    registerButton.classList.remove('active-toolbar')
-                    registerForm.classList.remove('active')
-                } else if (activeElement === 'register') {
-                    registerForm.classList.add('active')
-                    registerButton.classList.add('active-toolbar')
-                    loginButton.classList.remove('active-toolbar')
-                    loginForm.classList.remove('active')
-                }
-            }
-        </script>
-    </head>
-    <body>
-        <div class="nav-bar">
-            <a href='pages/main.php'>
-                <img class='logo' src="images/logo_movie.png" alt="logo of the company.">
-            </a>
-        </div>
+    <script src="js/toggleActive.js"></script>
 
-        <div class="main-container">
-            <div class="toolbar-container">
-                <div id="login-toolbar" class='active-toolbar submit-btn' onclick="toggleToolbar('login')">Login</div>
-                <div id="register-toolbar" class="submit-btn" onclick="toggleToolbar('register')">Register</div>
-            </div>
+</head>
+<body>
+<div class="nav-bar">
+    <a href='pages/main.php'>
+        <img class='logo' src="images/logo_movie.png" alt="logo of the company.">
+    </a>
+</div>
 
-            <form action="scripts/login.php" method="GET" id="login-form" class="active">
-                <label class="form-row">
-                    Username / Email / ID
-                    <input name="username_login" type="text">
-                </label>
-                <label class="form-row">
-                    Password
-                    <input name="password_login" type="password">
-                </label>
-                <input class="submit-btn margin-top-20" type="submit" value="Login" name="LoginBtn">
-            </form>
+<div class="main-container">
+    <div class="toolbar-container">
+        <div id="login-toolbar" class='active-toolbar submit-btn' onclick="toggleToolbar('login')">Login</div>
+        <div id="register-toolbar" class="submit-btn" onclick="toggleToolbar('register')">Register</div>
+    </div>
 
-            <form action="scripts/register.php" method="POST" enctype="multipart/form-data" id="register-form">
-                <label class="form-row">
-                    Username
-                    <input name="username_register" type="text">
-                </label>
-                <label class="form-row">
-                    Email
-                    <input name="email_register" type="text">
-                </label>
-                <label class="form-row">
-                    Password
-                    <input name="password_register" type="password">
-                </label>
-                <label class="form-row">
-                    Confirm Password
-                    <input name="confirm_password_register" type="password">
-                </label>
-                <label class="form-row">
-                    Age
-                    <input name="age_register" type="text">
-                </label>
-                <label class="form-row">
-                    Gender
-                    <select name="gender_register">
-                        <option value="M">Male</option>
-                        <option value="F">Female</option>
-                    </select>
-                </label>
-                <label class="form-row">
-                    Occupation
-                    <input name="occupation_register" type="text">
-                </label>
-                <label class="form-row">
-                    Profile photo
-                    <input name="file_register" type="file">
-                </label>
-                <input class="submit-btn margin-top-20" type="submit" value="Register" name="RegisterBtn"/>
-            </form>
-        </div>
-    </body>
+    <form action="scripts/login.php" method="GET" id="login-form" class="active">
+        <label class="form-row">
+            Username / Email / ID
+            <input name="username_login" type="text">
+        </label>
+        <label class="form-row">
+            Password
+            <input name="password_login" type="password">
+        </label>
+        <input class="submit-btn margin-top-20" type="submit" value="Login" name="LoginBtn">
+    </form>
+
+    <form action="scripts/register.php" method="POST" enctype="multipart/form-data" id="register-form">
+        <label class="form-row">
+            Username
+            <input name="username_register" type="text">
+        </label>
+        <label class="form-row">
+            Email
+            <input name="email_register" type="text">
+        </label>
+        <label class="form-row">
+            Password
+            <input name="password_register" type="password">
+        </label>
+        <label class="form-row">
+            Confirm Password
+            <input name="confirm_password_register" type="password">
+        </label>
+        <label class="form-row">
+            Age
+            <input name="age_register" type="text">
+        </label>
+        <label class="form-row">
+            Gender
+            <select name="gender_register">
+                <option value="M">Male</option>
+                <option value="F">Female</option>
+            </select>
+        </label>
+        <label class="form-row">
+            Occupation
+            <input name="occupation_register" type="text">
+        </label>
+        <label class="form-row">
+            Profile photo
+            <input name="file_register" type="file">
+        </label>
+        <input class="submit-btn margin-top-20" type="submit" value="Register" name="RegisterBtn"/>
+    </form>
+</div>
+</body>
 </html>
