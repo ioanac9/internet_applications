@@ -66,7 +66,7 @@
             $resultCount = $pdo->query($queryGetAllMoviesCount)->fetch(PDO::FETCH_ASSOC);
             $noOfMovies = $resultCount['COUNT(*)'];
 
-            echo "<div id='movies-container' style='width:100%' border='1'>";
+            echo "<div id='movies-container' style='width:100%'>";
             while ($movie=$resultQueryMovies->fetch(PDO::FETCH_ASSOC)){
                 if (strpos($movie["url_pic"], 'MV') !== false) {
                     echo "<div class='container'>";

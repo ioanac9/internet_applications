@@ -13,7 +13,7 @@
     margin-top: 100px;
 }
 
-#movies-container {
+#movies-container, .recommended-movies {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
 }
@@ -22,6 +22,7 @@
     width: 100%;
     position: relative;
     height: 400px;
+    background: maroon;
 }
 
 .container > div > img {

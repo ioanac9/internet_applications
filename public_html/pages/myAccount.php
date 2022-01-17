@@ -58,8 +58,8 @@
                 echo 'Connection failed: '. $e->getMessage();
             };
 
-            $session = $_COOKIE['session'];
-            $query = "SELECT * FROM users WHERE users.name='$session'";
+            $session = $_COOKIE['session_id'];
+            $query = "SELECT * FROM users WHERE users.id='$session'";
 
             $result = $pdo->query($query);
 
@@ -84,7 +84,7 @@
         <h2 style='margin-right: 20px'>Recommendations:</h2>
         <div class='btn-container'>
             <a style='height: 100%; display: flex; justify-content: center; align-items:center' class='submit-btn' href='../recommandations.php'>Update recommendations</a>
-            <a style='height: 100%; display: flex; justify-content: center; align-items:center' class='submit-btn' href='../searchRecommended.php'>Search recommendations</a>
+            <a style='height: 100%; display: flex; justify-content: center; align-items:center' class='submit-btn' href='./searchRecommended.php'>Search recommendations</a>
         </div>
     </body>
 </html>
