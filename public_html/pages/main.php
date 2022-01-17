@@ -44,43 +44,48 @@
 
         <?php
             try {
-                    $pdo = new PDO('mysql:host=localhost;dbname=Asd', 'root','Rodeapps123');
+                $pdo = new PDO('mysql:host=localhost;dbname=Asd', 'root','Rodeapps123');
             } catch (PDOException $e) {
                 echo 'Connection failed: ' . $e->getMessage();
             };
 
             $queryGetAllMovies = "SELECT * FROM movie";
             $resultQueryMovies = $pdo->query($queryGetAllMovies);
-        ?>
 
-        <?php
-            echo "<div id='movies-container' style='width:100%' border='1'>";
-            $queryGetUserScores = "SELECT score FROM user_score";
-            $resultPond = $pdo->query($queryGetUserScores);
-            $suma2=0;
-            $cnt2 = 0;
-            while ($score=$resultPond->fetch(PDO::FETCH_ASSOC)){
-                $suma2 = $suma2 + $score['score'];
-                $cnt2 = $cnt2 + 1;
+            $queryScoreForComputingWeight = "SELECT score FROM user_score";
+            $resultPond = $pdo->query($queryScoreForComputingWeight);
+            $sumOfAllTheScores=0;
+            $howManyScores = 0;
+            while ($scoreElement=$resultPond->fetch(PDO::FETCH_ASSOC)){
+                $sumOfAllTheScores = $sumOfAllTheScores + $scoreElement['score'];
+                $howManyScores += + 1;
             }
-            $media2 = $suma2/$cnt2;
+            $averageScores = $sumOfAllTheScores / $howManyScores;
+
+            $queryGetAllMoviesCount = "SELECT COUNT(*) FROM movie";
+            $resultCount = $pdo->query($queryGetAllMoviesCount)->fetch(PDO::FETCH_ASSOC);
+            $noOfMovies = $resultCount['COUNT(*)'];
+
+            echo "<div id='movies-container' style='width:100%' border='1'>";
             while ($movie=$resultQueryMovies->fetch(PDO::FETCH_ASSOC)){
-                $url_pic = $movie["url_pic"];
-                if (strpos($url_pic, 'MV') !== false) {
+                if (strpos($movie["url_pic"], 'MV') !== false) {
                     echo "<div class='container'>";
                         echo "<div><img src= '../images/".$movie["url_pic"]."'></div>";
                         echo "<div class='back-card'><a href='searchInfo.php?id=".$movie['id']."'>".$movie["title"]."</a>";
                         $queryScore = "SELECT score FROM user_score WHERE user_score.id_movie= ".$movie['id'];
                         $resultScore = $pdo->query($queryScore);
-                        $suma = 0;
-                        $cnt = 0;
+                        $sunOfAllTheScores = 0;
+                        $counter = 0;
                         while ($score2=$resultScore->fetch(PDO::FETCH_ASSOC)){
-                            $suma = $suma + $score2['score'];
-                            $cnt = $cnt + 1;
+                            $sunOfAllTheScores += $score2['score'];
+                            $counter += 1;
                         }
-                        $media = $suma/$cnt;
-                        echo $media;
-                        echo "<span>Total ratings: ".$cnt."</span>";
+                        $media = round($sunOfAllTheScores/$counter, 2);
+                        echo "<span>Average Rating: ".$media."</span>";
+                        $weight = ($noOfMovies * $averageScores + $counter * $media)/($noOfMovies+ $counter);
+                        echo "<span>Wheight: ".$weight."</span>";
+                        echo "<span>Total ratings: ".$counter."</span>";
+                        echo "<span style='padding: 0 20px; text-overflow: ellipsis'>Description: ".$movie['desc']."</span>";
                         echo "<span>".$movie["date"]."</span>";
                         echo "</div>";
                     echo "</div>";

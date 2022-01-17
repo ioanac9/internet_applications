@@ -1,6 +1,7 @@
 <?php
 
 $name = $_POST["username_register"];
+$email = $_POST["email_register"];
 $password = $_POST["password_register"];
 $password2 = $_POST["confirm_password_register"];
 $age = $_POST["age_register"];
@@ -28,8 +29,7 @@ if(isset($_POST["RegisterBtn"])){
                 }
 
                 $pass_hash = sha1($password);
-                $queryRegister = "INSERT INTO users(name, edad, sex, ocupacion, pic, passwd) values
-                ('$name', '$age','$gender', '$occupation', '$photo', '$pass_hash')";
+                $queryRegister = "INSERT INTO users(name, edad, sex, ocupacion, pic, passwd, email) values ('$name', '$age','$gender', '$occupation', '$photo', '$pass_hash', $email)";
                 $result = $pdo->query($queryRegister);
                 $route = 'images/'.$photo;
                 move_uploaded_file($_FILES['file_register']['tmp_name'],$route);
@@ -38,9 +38,9 @@ if(isset($_POST["RegisterBtn"])){
                 $r = $pdo->query($q);
                 $l=$r->fetch(PDO::FETCH_ASSOC);
                 echo "<script>alert('Registered user ')</script>";
-                setcookie('session',$name);
-                setcookie('session_id',$l['id']);
-                        echo "<script>window.location = '../pages/main.php' </script>";
+                setcookie('session',$name, time()+3600, '/');
+                setcookie('session_id',$l['id'], time()+3600, '/');
+                echo "<script>window.location = '../pages/main.php' </script>";
                 }
         }
         else {
