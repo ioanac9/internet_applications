@@ -29,7 +29,7 @@ if(isset($_POST["RegisterBtn"])){
                 }
 
                 $pass_hash = sha1($password);
-                $queryRegister = "INSERT INTO users(name, edad, sex, ocupacion, pic, passwd, email) values ('$name', '$age','$gender', '$occupation', '$photo', '$pass_hash', $email)";
+                $queryRegister = "INSERT INTO users(name, edad, sex, ocupacion, pic, passwd, email) values ('$name', '$age','$gender', '$occupation', '$photo', '$pass_hash', '$email')";
                 $result = $pdo->query($queryRegister);
                 $route = 'images/'.$photo;
                 move_uploaded_file($_FILES['file_register']['tmp_name'],$route);
