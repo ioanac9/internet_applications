@@ -83,7 +83,7 @@
                         $media = round($sunOfAllTheScores/$counter, 2);
                         echo "<span>Average Rating: ".$media."</span>";
                         $weight = ($noOfMovies * $averageScores + $counter * $media)/($noOfMovies+ $counter);
-                        echo "<span>Wheight: ".$weight."</span>";
+                        echo "<span>Weight: ".$weight."</span>";
                         echo "<span>Total ratings: ".$counter."</span>";
                         echo "<span style='padding: 0 20px; text-overflow: ellipsis'>Description: ".$movie['desc']."</span>";
                         echo "<span>".$movie["date"]."</span>";

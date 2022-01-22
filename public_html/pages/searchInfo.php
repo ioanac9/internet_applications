@@ -49,15 +49,15 @@
         $session = $_COOKIE['session'];
         $session_id = $_COOKIE['session_id'];
 
-        $query = "SELECT * FROM movie WHERE movie.id=".$_GET['id'];
-	    $result = $pdo->query($query);
+        $queryGetMovie = "SELECT * FROM movie WHERE movie.id=".$_GET['id'];
+	    $resultMovie = $pdo->query($queryGetMovie);
 
-        $l=$result->fetch(PDO::FETCH_ASSOC);
+        $movie=$resultMovie->fetch(PDO::FETCH_ASSOC);
         echo "<div class='movie-container-single'>";
             echo "<div class=movie-info>";
-                echo "<img class='movie-info-single' src= '../images/".$l["url_pic"]."'/>";
+                echo "<img class='movie-info-single' src= '../images/".$movie["url_pic"]."'/>";
                 echo "<div class='text-movie-container'>";
-                    echo "<div><h1>".$l["title"]."</h1></div>";
+                    echo "<div><h1>".$movie["title"]."</h1></div>";
                     echo "<div>";
                         echo "<span class='desc'> Genre: </span>";
                         $queryGen = "SELECT genre FROM moviegenre WHERE moviegenre.movie_id=".$_GET['id'];
@@ -69,8 +69,8 @@
                             echo $a['name'];
                         }
                     echo "</div>";
-                    echo "<div> <span class='desc'> Description: </span> ".$l["desc"]."</div>";
-                    echo "<div> <span class='desc'> Release date: </span>".$l["date"]."</div>";
+                    echo "<div> <span class='desc'> Description: </span> ".$movie["desc"]."</div>";
+                    echo "<div> <span class='desc'> Release date: </span>".$movie["date"]."</div>";
                     $queryC = "SELECT * FROM moviecomments WHERE moviecomments.movie_id=".$_GET['id'];
                     $resultC = $pdo->query($queryC);
                     echo "<div class='reviews'>";
@@ -112,7 +112,7 @@
                 $userid = $l['id'];
                 echo "<input type='hidden' name='user_id' value=".$l['id'].">";
             }
-	        echo "<input type='hidden' name='mover_id' value=".$_GET['id'].">";
+	        echo "<input type='hidden' name='movie_id' value=".$_GET['id'].">";
             echo   "<div class='add-rating-container'>";
             echo   "<div class='radio-container'>";
 	        echo   "<input id='radio1' type='radio' name='score' value='1'>";
@@ -139,11 +139,10 @@
             echo	"</form>";
 
             $idmovie =$_GET['id'];
-            $queryPunt = "SELECT * FROM user_score WHERE user_score.id_user='$session' AND user_score.id_movie=$idmovie";
-            $resu = $pdo->query($queryPunt);
-            $t=$resu->fetch(PDO::FETCH_ASSOC);
-            if ($t != 0) {
-	            echo "<p>Your score of the movie is: ".$t["score"]." </p>";
+            $queryGetRating = "SELECT * FROM user_score WHERE user_score.id_user='$session' AND user_score.id_movie=$idmovie";
+            $rating = $pdo->query($queryGetRating)->fetch(PDO::FETCH_ASSOC);
+            if ($rating != 0) {
+	            echo "<p>Your score of the movie is: ".$rating["score"]." </p>";
 	        }
 
 	    }

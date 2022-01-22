@@ -59,18 +59,18 @@
                 echo 'Connection failed: '. $e->getMessage();
         };
                 echo "<div class='recommended-movies' stlye='width:100%; margin-top:50px;'>";
-                $queryRec= "SELECT * FROM recs WHERE recs.user_id='".$_COOKIE["session_id"]."' ORDER BY recs.rec_score DESC";
-                $resultRec = $pdo->query($queryRec);
+                $queryGetRecommended= "SELECT * FROM recs WHERE recs.user_id='".$_COOKIE["session_id"]."' ORDER BY recs.rec_score DESC";
+                $resultRecommended = $pdo->query($queryGetRecommended);
                         for ($i = 0; $i < 5; $i++) {
-                                $rec=$resultRec->fetch(PDO::FETCH_ASSOC);
-                                $queryMov= "SELECT id,title,url_pic FROM movie WHERE movie.id=".$rec['movie_id'];
-                                $resultMov = $pdo->query($queryMov);
-                                $recMovie=$resultMov->fetch(PDO::FETCH_ASSOC);
+                                $recommended=$resultRecommended->fetch(PDO::FETCH_ASSOC);
+                                $queryGetMovie= "SELECT id,title,url_pic FROM movie WHERE movie.id=".$recommended['movie_id'];
+                                $resultMovie = $pdo->query($queryGetMovie);
+                                $recommendedMovie=$resultMovie->fetch(PDO::FETCH_ASSOC);
                                 echo "<div class='container'>";
-                                      echo "<div><img src= '../images/".$recMovie["url_pic"]."'></div>";
+                                      echo "<div><img src= '../images/".$recommendedMovie["url_pic"]."'></div>";
                                       echo "<div class='back-card'>";
-                                      echo "<a href='searchInfo.php?id=".$recMovie['id']."'>".$recMovie["title"]."</a>";
-                                      echo "<div>Rating: ".$rec["rec_score"]."</div>";
+                                      echo "<a href='searchInfo.php?id=".$recommendedMovie['id']."'>".$recommendedMovie["title"]."</a>";
+                                      echo "<div>Rating: ".$recommended["rec_score"]."</div>";
                                 echo "</div>";
                                 echo "</div>";
                         }

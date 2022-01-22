@@ -30,20 +30,21 @@ if(isset($_POST["UpdateBtn"])){
     $session = $_COOKIE['session'];
     $queryToUpdateTheUser = "UPDATE users SET users.name='$name', users.edad = '$age', users.sex = '$gender', users.ocupacion = '$occupation', users.passwd='$hashedPassword' WHERE users.name ='$session'";
     $result = $pdo->query($queryToUpdateTheUser);
-    if(empty($foto)==false) {
+    if(empty($pic)==false) {
         $usersPhotosQuery = "SELECT pic FROM users";
         $resultPhoto = $pdo->query($usersPhotosQuery);
         while ($current=$resultPhoto->fetch(PDO::FETCH_ASSOC)){
-            if ($current['pic']==$foto){
+            if ($current['pic']==$pic){
                 $i = 1;
-                $nombreSinExtension = pathinfo($foto);
-                $foto = $nombreSinExtension['filename'].$i.'.'.$nombreSinExtension['extension'];
+                $nameWithoutExtension = pathinfo($pic);
+                $pic = $nameWithoutExtension['filename'].$i.'.'.$nameWithoutExtension['extension'];
             }
         }
-        $queryFoto = "UPDATE users SET users.pic = '$foto' WHERE users.name='$session'";
-        $result = $pdo->query($queryFoto);
-        $ruta = 'fotos/'.$foto;
-        move_uploaded_file($_FILES['Foto']['tmp_name'],$ruta);
+        $queryPic = "UPDATE users SET users.pic = '$pic' WHERE users.name='$session'";
+        $result = $pdo->query($queryPic);
+        $route = 'photos/'.$pic;
+
+       move_uploaded_file($_FILES['Pic']['tmp_name'],$route);
     }
     echo "<script>alert('Updated successfully')</script>";
     echo "<script>window.location= '../pages/myAccount.php' </script>";

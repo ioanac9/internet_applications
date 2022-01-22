@@ -59,25 +59,21 @@
             };
 
             $session = $_COOKIE['session_id'];
-            $query = "SELECT * FROM users WHERE users.id='$session'";
+            $queryGetUser = "SELECT * FROM users WHERE users.id='$session'";
+            $user = $pdo->query($queryGetUser)->fetch(PDO::FETCH_ASSOC);
 
-            $result = $pdo->query($query);
-
-
-            while ($l=$result->fetch(PDO::FETCH_ASSOC)) {
                 echo "<div class='account-container'>";
-                    echo "<img width ='150' src= '../photos/".$l["pic"]."'>";
+                    echo "<img src= '../photos/".$user["pic"]."'>";
                     echo "<div class='account-info'>";
-                        echo "<div><span class='desc'>Name: </span>".$l["name"]."</div>";
-                        echo "<div><span class='desc'>Age: </span>".$l["edad"]."</div>";
-                        echo "<div><span class='desc'> Occupation: </span>".$l["ocupacion"]."</div>";
+                        echo "<div><span class='desc'>Name: </span>".$user["name"]."</div>";
+                        echo "<div><span class='desc'>Age: </span>".$user["edad"]."</div>";
+                        echo "<div><span class='desc'> Occupation: </span>".$user["ocupacion"]."</div>";
                         echo "<div class='btn-container'>";
                             echo "<a href='updateAccount.php'><button class='submit-btn'>Update your information</button></a>";
                             echo "<button class='submit-btn' onclick='remove()'> Delete account</button>";
                         echo "</div>";
                     echo "</div>";
                 echo "</div>";
-            }
         ?>
 
         <div class='recommendations-container'>

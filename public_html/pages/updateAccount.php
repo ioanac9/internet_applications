@@ -50,16 +50,14 @@
                 };
 
                 $session = $_COOKIE['session'];
-                $query = "SELECT * FROM users WHERE users.name='$session'";
-                $result = $pdo->query($query);
-
-                while ($l=$result->fetch(PDO::FETCH_ASSOC)){
-                    echo "<label class='form-row'> Username:<input name='username_register' type= 'text' value = '".$l["name"]."'></label>";
+                $queryGetUser = "SELECT * FROM users WHERE users.name='$session'";
+                $user = $pdo->query($queryGetUser)->fetch(PDO::FETCH_ASSOC);
+                    echo "<label class='form-row'> Username:<input name='username_register' type= 'text' value = '".$user["name"]."'></label>";
                     echo "<label class='form-row'> Password:<input name='password_register' type= 'password'></label>";
                     echo "<label class='form-row'> Confirm Password:<input name='confirm_password_register' type= 'password'></label>";
-                    echo "<label class='form-row'> Age:<input name='age_register' type= 'text' value = '".$l["edad"]."'></label>";
+                    echo "<label class='form-row'> Age:<input name='age_register' type= 'text' value = '".$user["edad"]."'></label>";
                     echo "<label class='form-row'>Gender:</label>";
-                    if($l['sex'] == 'M'){
+                    if($user['sex'] == 'M'){
                         echo '<div class="radio-container">';
                         echo '<input type="radio" id="M" name="gender_register" value="M" checked>';
                         echo '<label for="M">Male</label>';
@@ -78,10 +76,9 @@
                         echo '<label for="F">Female</label>';
                         echo '</div>';
                     }
-                    echo "<label class='form-row'> Occupation:<input name='occupation_register' type= 'text' value = '".$l["ocupacion"]."'></label>";
-                    echo "<label class='form-row'> Profile photo:<input name='file_register' type= 'file' value = '".$l["pic"]."'></label>";
+                    echo "<label class='form-row'> Occupation:<input name='occupation_register' type= 'text' value = '".$user["ocupacion"]."'></label>";
+                    echo "<label class='form-row'> Profile photo:<input name='file_register' type= 'file' value = '".$user["pic"]."'></label>";
                     echo  "<input type='submit' value='Submit' name='UpdateBtn' class='submit-btn update-acc'>";
-            }
             ?>
         </form>
     </div>

@@ -5,10 +5,10 @@
         echo 'Connection failed: ' . $e->getMessage();
     };
     $session = $_COOKIE['session'];
-    $query = "DELETE FROM users WHERE name = '$session'";
-    $result=$pdo->query($query);
-    $query1 = "DELETE FROM moviecomments WHERE user_id = '$session'";
-    $result1=$pdo->query($query1);
+    $queryDeleteAccount = "DELETE FROM users WHERE name = '$session'";
+    $resultDeleteAccount=$pdo->query($queryDeleteAccount);
+    $queryDeleteComments = "DELETE FROM moviecomments WHERE user_id = '$session'";
+    $resultDeleteComments=$pdo->query($queryDeleteComments);
 
     setcookie('session',1,time()-3600);
     setcookie('session_id',1,time()-3600);

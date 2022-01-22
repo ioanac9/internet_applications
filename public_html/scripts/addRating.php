@@ -40,11 +40,12 @@
                 ?>
             </div>
         </div>
+
         <h1>Recommended Movies</h1>
 
         <?php
             $userId = $_COOKIE["session_id"];
-            $movieID = $_GET["mover_id"];
+            $movieID = $_GET["movie_id"];
 
             try {
                 $pdo = new PDO('mysql:host=localhost;dbname=Asd', 'root','Rodeapps123');
@@ -58,18 +59,16 @@
                     echo "<th>Title</th>";
                     echo "<th>Rank</th>";
                 echo "</tr>";
-                $queryRec= "SELECT * FROM recs WHERE recs.user_id='$userId' ORDER BY recs.rec_score DESC";
-                $resultRec = $pdo->query($queryRec);
+                $queryGetRecommended= "SELECT * FROM recs WHERE recs.user_id='$userId' ORDER BY recs.rec_score DESC";
+                $recommended = $pdo->query($queryGetRecommended)->fetch(PDO::FETCH_ASSOC);
 
                 for ($i = 0; $i < 10; $i++) {
-                    $ll=$resultRec->fetch(PDO::FETCH_ASSOC);
-                    $queryMov= "SELECT id,title,url_pic FROM movie WHERE movie.id=".$ll['movie_id'];
-                    $resultMov = $pdo->query($queryMov);
-                    $lll=$resultMov->fetch(PDO::FETCH_ASSOC);
+                    $queryGetMovie= "SELECT id,title,url_pic FROM movie WHERE movie.id=".$recommended['movie_id'];
+                    $movie = $pdo->query($queryGetMovie)->fetch(PDO::FETCH_ASSOC);
                     echo "<tr>";
-                    echo "<td><img width ='150' src= '../images/".$lll["url_pic"]."'></td>";
-                    echo "<td>".$lll["title"]."</td>";
-                    echo "<td>".$ll["rec_score"]."</td>";
+                    echo "<td><img width ='150' src= '../images/".$movie["url_pic"]."'></td>";
+                    echo "<td>".$movie["title"]."</td>";
+                    echo "<td>".$recommended["rec_score"]."</td>";
                     echo "</tr>";
                 }
         ?>
