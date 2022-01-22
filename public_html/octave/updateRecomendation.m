@@ -32,15 +32,15 @@ my_predictions = p(:,idUser).*(ones(num_movies,1) - R(:,idUser));
 
 import java.sql.DriverManager;
 import java.sql.Connection;
-connection = DriverManager.getConnection('jdbc:mysql://localhost/ai33','ai33','ai2021');
+connection = DriverManager.getConnection("jdbc:mysql://localhost/Asd","localhost","Rodeapps123");
 query = connection.createStatement();
 
 query.executeUpdate(strcat("DELETE FROM recs WHERE user_id = '",num2str(idUser),"';"));
 
-[r,ix] = sort(my_predictions, 'descend');
+[r,ix] = sort(my_predictions, "descend");
 for i=1:10
     j = ix(i);
-    query.executeUpdate(strcat('INSERT INTO recs (user_id,movie_id,rec_score) VALUES (''',num2str(idUser),''',''',num2str(j),''',''',num2str(my_predictions(j)),''')'));
+    query.executeUpdate(strcat("INSERT INTO recs (user_id,movie_id,rec_score) VALUES (''',num2str(idUser),''',''',num2str(j),''',''',num2str(my_predictions(j)),''')"));
 end
 connection.close();
 end
