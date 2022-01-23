@@ -4,11 +4,8 @@ $movieId = $_POST['movieId'];
 $userId = $_POST['userId'];
 $comment = $_POST['comment'];
 
-try {
-    $pdo = new PDO('mysql:host=localhost;dbname=Asd', 'root','Rodeapps123');
-} catch (PDOException $e) {
-    echo 'Connection failed: ' . $e->getMessage();
-};
+require_once('dbConnection.php');
+$pdo = connectToDb();
 
 
 

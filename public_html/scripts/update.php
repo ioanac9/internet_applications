@@ -8,11 +8,8 @@ $gender = $_POST["gender_register"];
 $occupation = $_POST["occupation_register"];
 $photo = $_FILES['file_register']['name'];
 
-try {
-    $pdo = new PDO('mysql:host=localhost;dbname=Asd', 'root','Rodeapps123');
-} catch (PDOException $e) {
-    echo 'Connection failed: ' . $e->getMessage();
-};
+require_once('dbConnection.php');
+$pdo = connectToDb();
 
 if(isset($_POST["UpdateBtn"])){
 

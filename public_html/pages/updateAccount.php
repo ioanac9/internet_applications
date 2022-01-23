@@ -22,32 +22,16 @@
     </head>
 
 <body>
-    <div class="nav-bar">
-            <a href='main.php'>
-                <img class='logo' src="../images/logo_movie.png" alt="logo of the company.">
-            </a>
-            <div class='nav-bar-menu'>
-                <?php
-                if (isset($_COOKIE['session'])) {
-                    echo "<a class='submit-btn' href='myAccount.php'>My account</a>";
-                    echo "<form action='../scripts/logout.php' method='GET'>";
-                    echo "<input class='submit-btn' type='submit' name='exit' value='Logout'/>";
-                    echo "</form>";
-                } else {
-                    echo "<a class='submit-btn' href='../index.html'>Login/Register</a>";
-                }
-                ?>
-            </div>
-    </div>
+    <?php
+        require_once('dbConnection.php');
+        headerPrinter();
+    ?>
     <div class="margin-top-menu">
         <h1 align='center'>Update account information</h1>
         <form class='update-info' action = "../scripts/update.php" method="POST" enctype="multipart/form-data">
             <?php
-                try {
-                    $pdo = new PDO('mysql:host=localhost;dbname=Asd', 'root','Rodeapps123');
-                } catch (PDOException $e) {
-                    echo 'Connection failed: ' . $e->getMessage();
-                };
+                require_once('dbConnection.php');
+                $pdo = connectToDb();
 
                 $session = $_COOKIE['session'];
                 $queryGetUser = "SELECT * FROM users WHERE users.name='$session'";
