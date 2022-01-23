@@ -1,6 +1,6 @@
 <?php
 	try {
-		$route = "/home/alumnos/ai54/public_html/octave\r\n";
+		$route = "/Applications/XAMPP/xamppfiles/htdocs/AI/internet_applications/public_html/mathlab\r\n";
 		$update = "updateRecomendation(".$_COOKIE['session'].")\r\n";
 		$info = $route.$update.chr(0);
 
