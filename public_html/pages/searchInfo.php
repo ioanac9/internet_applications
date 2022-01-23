@@ -25,7 +25,7 @@
 <body>
 
     <?php
-        require_once('dbConnection.php');
+        require_once('utils.php');
         headerPrinter();
 
         $pdo = connectToDb();

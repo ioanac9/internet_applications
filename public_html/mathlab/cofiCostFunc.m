@@ -23,12 +23,6 @@ Theta_grad = zeros(size(Theta));
 %               debes implementar el gradiente y usar checkCostFunction para 
 %               comprobar que es correcto. Finalmente, debes implementar 
 %               regularizacion.
-
-% Err = (X*Theta'-Y).*R;
-% J = sum(Err(:).^2)/2 + (lambda/2)*sum(Theta(:).^2) + (lambda/2)*sum(X(:).^2);
- 
-% X_grad = (R.*(X*Theta'-Y))*Theta + lambda*X;
-% Theta_grad = (R.*(X*Theta'-Y))'*X + lambda*Theta;
 %
 % Notas: X - num_movies  x num_features : matriz de caracteristicas de la pelicula
 %        Theta - num_users  x num_features: matriz de parametros del usuario 
@@ -44,11 +38,8 @@ Theta_grad = zeros(size(Theta));
 %                 con respecto a cada elemento deTheta
 %
 
+% =============================================================
 
-J = sum(sum((X * Theta' - Y).^2 .*R))/2;
-J = J + lambda/2 * (sum(sum(Theta.^2)) + sum(sum(X.^2)));
-X_grad = (X * Theta' - Y) .* R * Theta + lambda * X;
-Theta_grad = ((X * Theta' - Y) .* R)' * X + lambda * Theta;
 grad = [X_grad(:); Theta_grad(:)];
 
 end

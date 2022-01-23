@@ -4,7 +4,7 @@
     $userId = $_GET['user_id'];
     $score = $_GET['score'];
 
-    require_once('dbConnection.php');
+    require_once('utils.php');
     $pdo = connectToDb();
 
     if(isset($_GET['ReviewBtn'])){

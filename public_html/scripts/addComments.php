@@ -4,9 +4,8 @@ $movieId = $_POST['movieId'];
 $userId = $_POST['userId'];
 $comment = $_POST['comment'];
 
-require_once('dbConnection.php');
+require_once('utils.php');
 $pdo = connectToDb();
-
 
 
 if(isset($_POST['sendComment'])){
