@@ -1,13 +1,9 @@
 <?php
+        require_once('dbConnection.php');
+        $pdo = connectToDb();
 
         $user = $_GET["username_login"];
         $password = $_GET["password_login"];
-
-        try {
-                $pdo = new PDO('mysql:host=localhost;dbname=Asd', 'root','Rodeapps123');
-        } catch (PDOException $e) {
-                echo 'Connection failed: ' . $e->getMessage();
-        };
 
         if (isset($_GET["LoginBtn"])) {
                 $passwordHashed = sha1($password);

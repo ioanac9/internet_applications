@@ -1,9 +1,6 @@
 <?php
-    try {
-        $pdo = new PDO('mysql:host=localhost;dbname=Asd', 'root','Rodeapps123');
-    }catch (PDOException $e) {
-        echo 'Connection failed: ' . $e->getMessage();
-    };
+    require_once('dbConnection.php');
+    $pdo = connectToDb();
     $session = $_COOKIE['session'];
     $queryDeleteAccount = "DELETE FROM users WHERE name = '$session'";
     $resultDeleteAccount=$pdo->query($queryDeleteAccount);
