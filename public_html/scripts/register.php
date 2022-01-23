@@ -18,10 +18,10 @@ try {
 if(isset($_POST["RegisterBtn"])){
 
         if ($password == $password2){
-                $queryy = "SELECT pic FROM users";
-                $resultt = $pdo->query($queryy);
-                while ($ll=$resultt->fetch(PDO::FETCH_ASSOC)){
-                        if ($ll['pic']==$photo){
+                $queryGetPic = "SELECT pic FROM users";
+                $resultGetPic = $pdo->query($queryGetPic);
+                while ($pic=$resultGetPic->fetch(PDO::FETCH_ASSOC)){
+                        if ($pic['pic']==$photo){
                                 $i = 1;
                                 $nameWithoutExtension = pathinfo($photo);
                                 $photo = $nameWithoutExtension['filename'].$i.'.'.$nameWithoutExtension['extension'];
@@ -30,16 +30,16 @@ if(isset($_POST["RegisterBtn"])){
 
                 $pass_hash = sha1($password);
                 $queryRegister = "INSERT INTO users(name, edad, sex, ocupacion, pic, passwd, email) values ('$name', '$age','$gender', '$occupation', '$photo', '$pass_hash', '$email')";
-                $result = $pdo->query($queryRegister);
+                $resultRegister = $pdo->query($queryRegister);
                 $route = 'images/'.$photo;
                 move_uploaded_file($_FILES['file_register']['tmp_name'],$route);
                 if($queryRegister){
-                $q="SELECT id FROM users WHERE users.name='$name'";
-                $r = $pdo->query($q);
-                $l=$r->fetch(PDO::FETCH_ASSOC);
+                $queryGetUserId="SELECT id FROM users WHERE users.name='$name'";
+                $resultUserId = $pdo->query($queryGetUserId);
+                $userId=$resultUserId->fetch(PDO::FETCH_ASSOC);
                 echo "<script>alert('Registered user ')</script>";
                 setcookie('session',$name, time()+3600, '/');
-                setcookie('session_id',$l['id'], time()+3600, '/');
+                setcookie('session_id',$userId['id'], time()+3600, '/');
                 echo "<script>window.location = '../pages/main.php' </script>";
                 }
         }

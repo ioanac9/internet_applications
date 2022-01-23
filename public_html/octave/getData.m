@@ -2,7 +2,7 @@ function getData
 import java.sql.DriverManager;
 import java.sql.Connection;
 
-connection = DriverManager.getConnection('jdbc:mysql://localhost/ai33','ai33','ai2021');
+connection = DriverManager.getConnection('jdbc:mysql://localhost/Asd','localhost','Rodeapps123');
 query = connection.createStatement();
 
 numeroUsuarios = query.executeQuery("SELECT MAX(id) FROM users");

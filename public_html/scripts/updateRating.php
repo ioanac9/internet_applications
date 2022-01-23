@@ -1,6 +1,6 @@
 <?php
 
-    $movieId = $_GET['mover_id'];
+    $movieId = $_GET['movie_id'];
     $userId = $_GET['user_id'];
     $score = $_GET['score'];
 
