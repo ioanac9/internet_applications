@@ -8,7 +8,7 @@ $gender = $_POST["gender_register"];
 $occupation = $_POST["occupation_register"];
 $photo = $_FILES['file_register']['name'];
 
-require_once('dbConnection.php');
+require_once('utils.php');
 $pdo = connectToDb();
 
 if(isset($_POST["UpdateBtn"])){

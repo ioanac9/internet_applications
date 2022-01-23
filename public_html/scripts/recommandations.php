@@ -8,7 +8,7 @@
 		socket_connect($socket, "127.0.0.1", 1111);
 		$sent = socket_write($socket, $info, strlen($info));
 
-		echo "<script>document.location = 'myAccount.php'</script>";
+		echo "<script>document.location = '../pages/searchRecommended.php'</script>";
 	} catch (Exception $e) {
 		echo $e->getMessage();
 	}

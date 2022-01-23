@@ -1,5 +1,5 @@
 <?php
-        require_once('dbConnection.php');
+        require_once('utils.php');
         $pdo = connectToDb();
 
         $user = $_GET["username_login"];

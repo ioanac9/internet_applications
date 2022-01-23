@@ -36,7 +36,7 @@
 <body>
 
 <?php
-    require_once('dbConnection.php');
+    require_once('utils.php');
     headerPrinter();
     echo '<h1 class="margin-top-menu">Recommended movies </h1>';
 

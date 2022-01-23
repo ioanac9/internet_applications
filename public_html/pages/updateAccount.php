@@ -23,14 +23,14 @@
 
 <body>
     <?php
-        require_once('dbConnection.php');
+        require_once('utils.php');
         headerPrinter();
     ?>
     <div class="margin-top-menu">
         <h1 align='center'>Update account information</h1>
         <form class='update-info' action = "../scripts/update.php" method="POST" enctype="multipart/form-data">
             <?php
-                require_once('dbConnection.php');
+                require_once('utils.php');
                 $pdo = connectToDb();
 
                 $session = $_COOKIE['session'];

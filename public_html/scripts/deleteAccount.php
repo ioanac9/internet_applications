@@ -1,5 +1,5 @@
 <?php
-    require_once('dbConnection.php');
+    require_once('utils.php');
     $pdo = connectToDb();
     $session = $_COOKIE['session'];
     $queryDeleteAccount = "DELETE FROM users WHERE name = '$session'";
